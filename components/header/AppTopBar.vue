@@ -59,7 +59,7 @@ export default {
     }
 }
 </script>
-<style scoped lang="scss">
+<style lang="scss">
     .top_nav {
         background-color: var(--secondary-color);
         @include sm {
