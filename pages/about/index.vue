@@ -37,6 +37,16 @@ export default {
     AppAboutSecurity,
     AppAboutParteners,
     AppAboutCountdown
-  }
+  },
+  async asyncData({ $axios }) {
+    const aboutDetails = {}
+    const ABOUT_DETAILS = await $axios.get('/pages/1');
+
+    if (ABOUT_DETAILS.success) aboutDetails = ABOUT_DETAILS.data.data
+
+    return {
+      aboutDetails
+    }
+  },
 }
 </script>

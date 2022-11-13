@@ -15,12 +15,12 @@
                                 <div class="row">
                                     <div class="col-lg-12 ">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" required="" data-error="Please enter your Username or Email" placeholder="Username or Email">
+                                            <input type="text" class="form-control" required="" data-error="Please enter your Username or Email" placeholder="Username or Email" v-model="email">
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <input class="form-control" type="password" name="password" placeholder="Password">
+                                            <input class="form-control" type="password" name="password" placeholder="Password" v-model="password">
                                         </div>
                                     </div>
                                     <div class="col-lg-12 form-condition">
@@ -33,7 +33,7 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-12 ">
-                                        <button type="submit" class="default-btn btn-bg-two">
+                                        <button type="button" class="default-btn btn-bg-two" @click="login">
                                             Log In Now
                                         </button>
                                     </div>
@@ -55,7 +55,24 @@
 
 <script>
 export default {
-    name: 'AppLoginForm'
+    name: 'AppLoginForm',
+    data() {
+        return {
+            email: '',
+            password: ''
+        }
+    },
+    methods: {
+        async login () {
+            const data = {
+                email: this.email,
+                password: this.password
+            }
+            const response = await this.$axios.post('/api/users/auth/login', data).catch(err => console.log(err));
+
+            if (!response) return;
+        }
+    }
 }
 </script>
 
