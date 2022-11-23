@@ -1,38 +1,17 @@
 <template>
     <section class="partners">
-        <swiper :options="swiperOption" class="owl-carousel">
-            
-            <swiper-slide>
-                <div class="item">
-                    <img class="" src="/assets/images/brand-style1.png" width="150" height="150">
-                </div>
-            </swiper-slide>
-
-            <swiper-slide>
-                <div class="item">
-                    <img class="" src="/assets/images/brand-style2.png" width="150" height="150">
-                </div>
-            </swiper-slide>
-
-            <swiper-slide>
-                <div class="item">
-                    <img class="" src="/assets/images/brand-style3.png" width="150" height="150">
-                </div>
-            </swiper-slide>
-
-            <swiper-slide>
-                <div class="item">
-                    <img class="" src="/assets/images/brand-style4.png" width="150" height="150">
-                </div>
-            </swiper-slide>
-
-            <swiper-slide>
-                <div class="item">
-                    <img class="" src="/assets/images/brand-style5.png" width="150" height="150">
-                </div>
-            </swiper-slide>
-
-        </swiper>
+    <swiper :options="swiperOption" class="owl-carousel">
+      <swiper-slide v-for="partner in partners.partners" :key="partner.id">
+        <div class="item">
+          <img
+            class="imgo"
+            :src="partner.image"
+            width="150"
+            height="150"
+          />
+        </div>
+      </swiper-slide>
+    </swiper>
     </section>
 </template>
 
@@ -73,7 +52,8 @@ export default {
                 },
             },
         }
-    }
+    },
+  props: ["partners"]
 }
 </script>
 <style>

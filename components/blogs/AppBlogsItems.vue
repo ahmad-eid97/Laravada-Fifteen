@@ -5,166 +5,31 @@
                 <span class="sp-color2">Latest Blog</span>
                 <h2>Let’s Check Some Latest Blog</h2>
             </div>
-            <div class="row pt-45 pr-10">
-                <div class="col-lg-4 col-md-6">
+            <div class="row pt-45">
+                <div v-for="blog in blogs.blogs" :key="blog.id" class="col-lg-4 col-md-6" @click="$router.push(`/blog/${blog.id}`)">
                     <div class="blog-card">
                         <div class="blog-img">
-                            <a href="#">
-                                <img src="/assets/images/blog-img2.jpg" alt="Blog Images">
-                            </a>
+                            <router-link to="blog">
+                                <img :src="blog.category.image" alt="Blog Images">
+                            </router-link>
                             <div class="blog-tag">
                                 <h3>11</h3>
                                 <span>Dec</span>
                             </div>
                         </div>
                         <h3 class="title">
-                            <a href="#">Product Idea Solution for New Generation</a>
+                            <router-link to="blog">{{blog.title}}</router-link>
                         </h3>
                         <div class="content">
                             <ul>
                                 <li>
-                                    <a href="#"><font-awesome-icon icon="fa-solid fa-user" />By Admin</a>
+                                    <a href="#"><font-awesome-icon icon="fa-regular fa-user" />By Admin</a>
                                 </li>
                                 <li>
                                     <a href="index.html"><font-awesome-icon icon="fa-solid fa-tag" />Business</a>
                                 </li>
                             </ul>
-                            <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum.Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="blog-card">
-                        <div class="blog-img">
-                            <a href="#">
-                                <img src="/assets/images/blog-img1.jpg" alt="Blog Images">
-                            </a>
-                            <div class="blog-tag">
-                                <h3>11</h3>
-                                <span>Dec</span>
-                            </div>
-                        </div>
-                        <h3 class="title">
-                            <a href="#">Product Idea Solution for New Generation</a>
-                        </h3>
-                        <div class="content">
-                            <ul>
-                                <li>
-                                    <a href="#"><font-awesome-icon icon="fa-solid fa-user" />By Admin</a>
-                                </li>
-                                <li>
-                                    <a href="index.html"><font-awesome-icon icon="fa-solid fa-tag" />Business</a>
-                                </li>
-                            </ul>
-                            <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum.Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="blog-card">
-                        <div class="blog-img">
-                            <a href="#">
-                                <img src="/assets/images/blog-img3.jpg" alt="Blog Images">
-                            </a>
-                            <div class="blog-tag">
-                                <h3>11</h3>
-                                <span>Dec</span>
-                            </div>
-                        </div>
-                        <h3 class="title">
-                            <a href="#">Product Idea Solution for New Generation</a>
-                        </h3>
-                        <div class="content">
-                            <ul>
-                                <li>
-                                    <a href="#"><font-awesome-icon icon="fa-solid fa-user" />By Admin</a>
-                                </li>
-                                <li>
-                                    <a href="index.html"><font-awesome-icon icon="fa-solid fa-tag" />Business</a>
-                                </li>
-                            </ul>
-                            <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum.Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="blog-card">
-                        <div class="blog-img">
-                            <a href="#">
-                                <img src="/assets/images/blog-img4.jpg" alt="Blog Images">
-                            </a>
-                            <div class="blog-tag">
-                                <h3>11</h3>
-                                <span>Dec</span>
-                            </div>
-                        </div>
-                        <h3 class="title">
-                            <a href="#">Product Idea Solution for New Generation</a>
-                        </h3>
-                        <div class="content">
-                            <ul>
-                                <li>
-                                    <a href="#"><font-awesome-icon icon="fa-solid fa-user" />By Admin</a>
-                                </li>
-                                <li>
-                                    <a href="index.html"><font-awesome-icon icon="fa-solid fa-tag" />Business</a>
-                                </li>
-                            </ul>
-                            <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum.Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="blog-card">
-                        <div class="blog-img">
-                            <a href="#">
-                                <img src="/assets/images/blog-img5.jpg" alt="Blog Images">
-                            </a>
-                            <div class="blog-tag">
-                                <h3>11</h3>
-                                <span>Dec</span>
-                            </div>
-                        </div>
-                        <h3 class="title">
-                            <a href="#">Product Idea Solution for New Generation</a>
-                        </h3>
-                        <div class="content">
-                            <ul>
-                                <li>
-                                    <a href="#"><font-awesome-icon icon="fa-solid fa-user" />By Admin</a>
-                                </li>
-                                <li>
-                                    <a href="index.html"><font-awesome-icon icon="fa-solid fa-tag" />Business</a>
-                                </li>
-                            </ul>
-                            <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum.Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="blog-card">
-                        <div class="blog-img">
-                            <a href="#">
-                                <img src="/assets/images/blog-img6.jpg" alt="Blog Images">
-                            </a>
-                            <div class="blog-tag">
-                                <h3>11</h3>
-                                <span>Dec</span>
-                            </div>
-                        </div>
-                        <h3 class="title">
-                            <a href="#">Product Idea Solution for New Generation</a>
-                        </h3>
-                        <div class="content">
-                            <ul>
-                                <li>
-                                    <a href="#"><font-awesome-icon icon="fa-solid fa-user" />By Admin</a>
-                                </li>
-                                <li>
-                                    <a href="index.html"><font-awesome-icon icon="fa-solid fa-tag" />Business</a>
-                                </li>
-                            </ul>
-                            <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum.Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum.</p>
+                            <p>{{blog.description}}</p>
                         </div>
                     </div>
                 </div>
@@ -188,7 +53,8 @@
 
 <script>
 export default {
-    name: 'AppBlogsItems'
+    name: 'AppBlogsItems',
+    props: ["blogs"]
 }
 </script>
 
@@ -220,6 +86,8 @@ export default {
     }
     .blog-card .blog-img img {
         border-radius: 5px 5px 0 0;
+        height: 250px;
+        width: 100%;
     }
     .blog-card .blog-img .blog-tag {
         background-color: #24b1ee;
