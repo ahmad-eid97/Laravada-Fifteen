@@ -2,7 +2,7 @@
     <header class="header header-style-2 clearfix">
         <app-top-bar></app-top-bar>
         <b-navbar toggleable="lg" :class="{ 'onScroll': !topOfPage}" class="navbar navbar-expand-lg navbar-light py-0 ">
-                    <b-navbar-brand href="#"><img src="/assets/images/logo.png" alt="logo" style="width: 150px; margin: 10px 0" @click="$router.push('/')"></b-navbar-brand>
+                    <b-navbar-brand href="/"><img src="/assets/images/logo.png" alt="logo" style="width: 150px; margin: 10px 0" @click="$router.push('/')"></b-navbar-brand>
                     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
                     <b-collapse id="nav-collapse" is-nav>
                         <ul class="navbar-nav me-auto ">
