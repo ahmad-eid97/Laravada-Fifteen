@@ -22,7 +22,7 @@ export default {
 <style>
 .side-bar-widget .title {
   font-size: 20px;
-  color: #24b1ee;
+  color: #252525;
   padding: 0;
   font-weight: 600;
   position: relative;
@@ -43,10 +43,10 @@ export default {
   color: #fff;
 }
 .side-bar-widget .side-bar-widget-tag li a {
-  color: #24b1ee;
+  color: var(--main-color);
   padding: 7px 15px;
   background-color: transparent;
-  border: 2px solid #24b1ee;
+  border: 2px solid var(--main-color);
   font-size: 14px;
   font-weight: 400;
   border-radius: 0;
@@ -54,7 +54,7 @@ export default {
   transition: .7s;
 }
 .side-bar-widget .side-bar-widget-tag li:hover a {
-  color: #24b1ee;
-  background-color: #24b1ee;
+  color: #fff;
+  background-color: var(--main-color);
 }
 </style>

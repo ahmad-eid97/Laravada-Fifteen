@@ -22,7 +22,7 @@ export default {
 <style>
 .side-bar-widget .title {
   font-size: 20px;
-  color: var(--main-color);
+  color: #212529;
   padding: 0;
   font-weight: 600;
   position: relative;
@@ -49,12 +49,12 @@ export default {
   border: 2px solid var(--main-color);
   font-size: 14px;
   font-weight: 400;
-  border-radius: 0;
+  border-radius: 20px;
   -webkit-transition: .7s;
   transition: .7s;
 }
 .side-bar-widget .side-bar-widget-tag li:hover a {
-  color: #24b1ee;
+  color: #fff;
   background-color: var(--main-color);
 }
 </style>

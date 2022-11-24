@@ -13,8 +13,8 @@
                                 <img :src="blog.category.image" alt="Blog Images">
                             </router-link>
                             <div class="blog-tag">
-                                <h3>11</h3>
-                                <span>Dec</span>
+                                <h3>{{ $date(new Date(blog.publish_date), 'dd') }}</h3>
+                                <span>{{ $date(new Date(blog.publish_date), 'MMM') }}</span>
                             </div>
                         </div>
                         <h3 class="title">
@@ -23,13 +23,13 @@
                         <div class="content">
                             <ul>
                                 <li>
-                                    <a href="#"><font-awesome-icon icon="fa-regular fa-user" />By Admin</a>
+                                    <a href="#"><font-awesome-icon icon="fa-regular fa-user" />By {{blog.username}}</a>
                                 </li>
                                 <li>
                                     <a href="index.html"><font-awesome-icon icon="fa-solid fa-tag" />Business</a>
                                 </li>
                             </ul>
-                            <p>{{blog.description}}</p>
+                            <p>{{blog.short_description}}</p>
                         </div>
                     </div>
                 </div>
@@ -59,12 +59,37 @@ export default {
 </script>
 
 <style>
+    .blog-area .section-title span {
+        margin-bottom: 8px;
+        font-weight: 600;
+        display: block;
+        color: var(--main-color);
+    }
+    .blog-area .section-title h2 {
+        max-width: 600px;
+        color: #212529;
+        font-size: 35px;
+        font-weight: 800;
+        letter-spacing: -1px;
+        line-height: 42px;
+        text-align: left;
+        margin-top: 10px;
+        margin-right: auto;
+        margin-bottom: 15px;
+        margin-left: auto;
+        text-align: center;
+    }
+    .blog-area .section-title .seprator img {
+        width: 70px;
+        margin-top: 5px;
+        margin-bottom: 20px;
+    }
     .blog-card {
         background-color: #fff;
         -webkit-box-shadow: 0 0 15px rgba(0,0,0,.05);
         box-shadow: 0 0 15px rgba(0,0,0,.05);
         margin-bottom: 30px;
-        border-radius: 5px;
+        border-radius: 12px;
         -webkit-transition: .9s;
         transition: .9s;
         border: 1px solid #f1f1f1;
@@ -85,26 +110,28 @@ export default {
         margin: 0 0 0;
     }
     .blog-card .blog-img img {
-        border-radius: 5px 5px 0 0;
+        border-radius: 12px 12px 0 0;
         height: 250px;
         width: 100%;
     }
     .blog-card .blog-img .blog-tag {
-        background-color: #24b1ee;
-        padding: 15px 12px;
         position: absolute;
         top: -10px;
         right: 30px;
-        border-radius: 5px;
+        text-align: center;
+        background-color: var(--main-color);
+        padding: 15px 12px;
+        border-radius: 12px;
         text-align: center;
     }
     .blog-card:hover .blog-img .blog-tag {
-        background-color: #24b1ee;
-        padding: 15px 12px;
         position: absolute;
         top: -20px;
         right: 30px;
-        border-radius: 5px;
+        text-align: center;
+        background-color: var(--main-color);
+        padding: 15px 12px;
+        border-radius: 12px;
         text-align: center;
     }
     .blog-card .blog-img .blog-tag h3 {
@@ -119,6 +146,9 @@ export default {
         color: #fff;
         line-height: 1;
         font-weight: 500;
+    }
+    .blog-card .content ul li a {
+        color: #212529;
     }
     .blog-card .content ul li a svg{
         font-size: 20px;
@@ -145,8 +175,7 @@ export default {
     .blog-card h3.title {
         font-size: 22px;
         padding: 10px 30px;
-        background: rgb(255,182,27);
-        background: linear-gradient(180deg, #24b1ee 0%, var(--main-color) 100%);
+        background: var(--main-color); 
         text-align: center;
         position: relative;
         z-index: 1;

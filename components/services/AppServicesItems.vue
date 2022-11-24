@@ -4,7 +4,7 @@
             <div class="section-title text-center">
                 <span class="sp-color2">Our Services</span>
                 <h2>We Provide a Wide Variety of It Services</h2>
-                <p class="margin-auto">
+                <p class="margin-auto mx-auto">
                 Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec
                 </p>
             </div>
@@ -12,12 +12,12 @@
                 <div v-for="service in services.services" :key="service.id" class="col-lg-3 col-sm-6 col-md-4" @click="$router.push(`/service/${service.id}`)">
                     <div class="services-card services-style-bg">
                         <div class="icon">
-                            <font-awesome-icon icon="fa-solid fa-person-dots-from-line" />
+                            <font-awesome-icon :icon="service.icon" />
                         </div>
                         <h3>
                             <router-link to="service">{{service.title}}</router-link>
                         </h3>
-                        <p>{{service.description}}</p>
+                        <p>{{service.short_description}}</p>
                         <router-link to="service" class="learn-btn">Learn More 
                             <i class="bx bx-chevron-right"></i>
                         </router-link>
@@ -54,42 +54,45 @@ export default {
   position: relative;
   text-align: center;
 }
-.section-title span {
+
+.services-style-area  .section-title span {
   margin-bottom: 8px;
   font-weight: 600;
   display: block;
-  color: #24b1ee;
-}
-.section-title p {
-    margin: auto;
+  color: var(--main-color);
 }
 .services-style-area .section-title h2 {
-  max-width: 390px;
-  color: var(--main-color);
-  margin-left: auto;
-  margin-right: auto;
-  font-size: 35px;
-  font-weight: 600;
-  margin-top: 0;
-  line-height: 1.2;
-  margin-bottom: 0;
+    max-width: 600px;
+    color: #252525;
+    font-size: 35px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    line-height: 42px;
+    text-align: left;
+    margin-top: 10px;
+    margin-right: auto;
+    margin-bottom: 15px;
+    margin-left: auto;
+    text-align: center;
 }
+
 .services-style-area .section-title p {
   max-width: 600px;
 }
 .services-card {
     box-shadow: 0 0 15px rgba(0,0,0,.07);
     padding: 40px 30px 35px;
-    border-radius: 15px;
+    border-radius: 12px;
     background-color: #fff;
     position: relative;
     z-index: 1;
     margin-bottom: 30px;
-    color: #24b1ee;
+    color: #252525;
 }
 .services-card h3 a {
-    color: #24b1ee;
-    font-size: 26px;
+    color: #252525;
+    font-size: 22px;
+
 }
 .services-card:hover h3 a,
 .services-card:hover p {
@@ -103,8 +106,8 @@ export default {
     right: 0;
     width: 90px;
     height: 90px;
-    background-color: var(--main-color);
-    border-radius: 272px 0 45px;
+    background-color:var(--main-color);
+    border-radius: 12px;
     opacity: .1;
     -webkit-transition: .7s;
     transition: .7s;
@@ -119,8 +122,8 @@ export default {
     right: 0;
     width: 75px;
     height: 75px;
-    background-color: var(--main-color);
-    border-radius: 170px 0  45px;
+    background-color:var(--main-color);
+    border-radius: 12px;
     opacity: .1;
     -webkit-transition: .7s;
     transition: .7s;
@@ -128,7 +131,7 @@ export default {
 .services-card:hover::before {
     width: 100%;
     height: 100%;
-    border-radius: 15px;
+    border-radius: 12px;
     opacity: 1;
 }
 .services-card .icon {
@@ -136,8 +139,9 @@ export default {
     width: 80px;
     height: 80px;
     line-height: 80px;
-    color: #24b1ee;
-    border-radius: 50px;
+    color: #fff;
+    background-color:var(--main-color);
+    border-radius: 12px;
     display: inline-block;
     text-align: center;
     margin-bottom: 12px;
@@ -149,12 +153,19 @@ export default {
     width: 80px;
     height: 80px;
     line-height: 80px;
-    color: #fff;
-    border-radius: 50px;
+    color: var(--main-color);
+    background-color: #fff;
+    border-radius: 12px;
     display: inline-block;
     text-align: center;
     margin-bottom: 12px;
     -webkit-transition: .5s;
     transition: .5s;
+}
+.services-card a {
+    color: #212934;
+}
+.services-card:hover a {
+    color: #fff;
 }
 </style>

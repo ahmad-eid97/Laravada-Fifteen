@@ -3,29 +3,9 @@
         <h3 class="title">Our Services</h3>
         <div class="side-bar-categories">
             <ul>
-                <li>
-                    <div class="line-circle"></div>
-                    <a href="#" target="_blank">IT Services</a>
-                </li>
-                <li>
-                    <div class="line-circle"></div>
-                    <a href="#" target="_blank">Cloud Computing</a>
-                </li>
-                <li>
-                    <div class="line-circle"></div>
-                    <a href="#" target="_blank">Web Development</a>
-                </li>
-                <li>
-                    <div class="line-circle"></div>
-                    <a href="#" target="_blank">Business Reform</a>
-                </li>
-                <li>
-                    <div class="line-circle"></div>
-                    <a href="#" target="_blank">Infrastructure</a>
-                </li>
-                <li>
-                    <div class="line-circle"></div>
-                    <a href="#" target="_blank">Data Analysis</a>
+                <li v-for="feature in serviceDetails.features" :key="feature">
+                  <div class="line-circle"></div>
+                  <a href="#" target="_blank">{{feature}}</a>
                 </li>
             </ul>
         </div>
@@ -34,15 +14,15 @@
 
 <script>
 export default {
-    name: 'AppServiceSideServices'
-
+    name: 'AppServiceSideServices',
+    props: ["serviceDetails"]
 }
 </script>
 
 <style>
 .side-bar-widget .title {
   font-size: 20px;
-  color: var(--main-color);
+  color: #252525;
   padding: 0;
   font-weight: 600;
   position: relative;
@@ -96,6 +76,6 @@ export default {
   width: 100%;
 }
 .side-bar-widget .side-bar-categories ul li a:hover {
-  color: #24b1ee;
+  color: #ffb536;
 }
 </style>

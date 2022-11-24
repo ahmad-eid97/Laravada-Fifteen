@@ -1,10 +1,11 @@
 <template>
     <div class="service-article">
         <div class="service-article-img">
-            <img src="/assets/images/service-details.jpg" alt="Images">
+            <img :src="serviceDetails.image" alt="Images">
         </div>
         <div class="service-article-content">
-            <h2>Cloud Computing</h2>
+            <p>{{serviceDetails.description}}</p>
+            <!-- <h2>Cloud Computing</h2>
             <p>
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. cu
             sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies ne,
@@ -95,13 +96,15 @@
             pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aen
             li, porttitor eu, consequat vitae, eleifend ac, enim.
             </p>
+        </div> -->
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'AppServiceBody'
+    name: 'AppServiceBody',
+    props: ["serviceDetails"]
 }
 </script>
 
@@ -110,12 +113,13 @@ export default {
   margin-bottom: 25px;
 }
 .service-article .service-article-img img {
-  border-radius: 15px;
+  border-radius: 12px;
+  max-width: 100%;
 }
 .service-article h2 {
   font-size: 26px;
   margin-bottom: 15px;
-  color: var(--main-color);
+  color: #252525;
 }
 .service-article .service-article-content p {
   margin-bottom: 20px;
@@ -127,7 +131,7 @@ export default {
 }
 .service-article .service-article-content .service-article-list li {
   display: block;
-  color: var(--main-color);
+  color: #252525;
   margin-bottom: 10px;
   font-weight: 600;
   -webkit-transition: .7s;
@@ -139,7 +143,7 @@ export default {
 }
 .service-article .service-article-content .service-article-list li svg {
   font-size: 26px;
-  color: #24b1ee;
+  color: var(--main-color);
   position: absolute;
   left: 0;
   top: -2px;
@@ -152,6 +156,6 @@ export default {
   margin-top: 10px;
 }
 .service-article .service-article-another .service-article-another-img img {
-  border-radius: 15px;
+  border-radius: 12px;
 }
 </style>

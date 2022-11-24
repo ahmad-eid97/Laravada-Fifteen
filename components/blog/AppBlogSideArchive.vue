@@ -3,46 +3,26 @@
         <h3 class="title">Blog Categories</h3>
         <div class="side-bar-categories">
             <ul>
-            <li>
+            <li v-for="feature in blogDetails.features" :key="feature">
               <div class="line-circle"></div>
-              <a href="#" target="_blank">Design<span>[70]</span></a>
+              <a href="#" target="_blank">{{feature}}</a>
             </li>
-            <li>
-              <div class="line-circle"></div>
-              <a href="#" target="_blank">Business<span>[24]</span></a>
-            </li>
-            <li>
-              <div class="line-circle"></div>
-              <a href="#" target="_blank">Development<span>[08]</span></a>
-            </li>
-            <li>
-              <div class="line-circle"></div>
-              <a href="#" target="_blank">Technology <span>[17]</span></a>
-            </li>
-            <li>
-              <div class="line-circle"></div>
-              <a href="#" target="_blank">Startup <span>[20]</span></a>
-            </li>
-            <li>
-              <div class="line-circle"></div>
-              <a href="#" target="_blank">Marketing Growth <span>[13]</span></a>
-            </li>
-</ul>
+          </ul>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'AppBlogSideArchive'
-
+    name: 'AppBlogSideArchive',
+    props: ["blogDetails"]
 }
 </script>
 
 <style>
 .side-bar-widget .title {
   font-size: 20px;
-  color: var(--main-color);
+  color: #212529;
   padding: 0;
   font-weight: 600;
   position: relative;
@@ -96,7 +76,7 @@ export default {
   width: 100%;
 }
 .side-bar-widget .side-bar-categories ul li a:hover {
-  color: #24b1ee;
+  color:  var(--main-color);
 }
 .side-bar-widget .side-bar-categories ul li a span {
   right: 30px;
