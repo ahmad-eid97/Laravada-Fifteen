@@ -15,7 +15,7 @@
                 </li>
                 <li>
                     <font-awesome-icon icon="fa-solid fa-eye" />
-                    322 View
+                    {{blogDetails.views}} Views
                 </li>
                 <li>
                     <font-awesome-icon icon="fa-solid fa-comments" />
