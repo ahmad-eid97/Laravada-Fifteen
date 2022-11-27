@@ -133,7 +133,7 @@ export default {
         display: inline-block;
         text-align: center;
     }
-    svg {
+    .top_nav svg {
         max-width: 15px !important;
     }
 </style>

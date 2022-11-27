@@ -18,7 +18,7 @@
         <p class="footer-text"> +001 234 56 78</p>
 
         <p class=""> Email</p>
-        <p class="footer-text">hello@dream-theme.com</p>
+        <p class="footer-text">{{$store.state.websiteSettings.find(one => one.key === 'email').plain_value}}</p>
 
         <p class=""> Address</p>
         <p class="footer-text">Highland St. Tonawanda, NY 14150</p>

@@ -1,5 +1,5 @@
 <template>
-    <section class="partners">  
+    <section class="about-partners">     
         <swiper :options="swiperOption" class="owl-carousel">
         <swiper-slide v-for="partner in partners.partners" :key="partner.id">
             <div class="item">
@@ -21,34 +21,34 @@ export default {
     data() {
         return {
             swiperOption: {
-                loop: true,
-                slidesPerView: 5,
-                spaceBetween: 50,
-                breakpoints: {
+            loop: true,
+            slidesPerView: 5,
+            spaceBetween: 50,
+            breakpoints: {
                 // when window width is >= 320px
                 100: {
-                    slidesPerView: 1,
-                    spaceBetween: 5,
+                slidesPerView: 1,
+                spaceBetween: 5,
                 },
                 // when window width is >= 480px
                 480: {
-                    slidesPerView: 2,
-                    spaceBetween: 5,
+                slidesPerView: 2,
+                spaceBetween: 5,
                 },
                 // when window width is >= 640px
                 640: {
-                    slidesPerView: 3,
-                    spaceBetween: 5,
+                slidesPerView: 3,
+                spaceBetween: 5,
                 },
                 992: {
-                    slidesPerView: 4,
-                    spaceBetween: 5,
+                slidesPerView: 4,
+                spaceBetween: 5,
                 },
                 1200: {
-                    slidesPerView: 5,
-                    spaceBetween: 5,
+                slidesPerView: 5,
+                spaceBetween: 5,
                 },
-                },
+            }
             },
         }
     },
@@ -56,13 +56,13 @@ export default {
 }
 </script>
 <style>
-    .partners {
-        padding: 45px 100px 0;
-        background-color: #2d349b !important;
+    .about-partners {
+        padding: 45px 100px 15px !important;
+        background-color: var(--main-color) !important;
     }
-    .partners::before {
+    .about-partners::before {
         content: '';
-        position: absolute;
+        /* position: absolute; */
         top: 0;
         left: 0;
         right: 0;
@@ -72,23 +72,21 @@ export default {
         background-size: cover;
         background-repeat: no-repeat;
         background-image: url(/assets/images/brand-bg.png);
-        content: none;
     }
-    .partners .owl-carousel {
+    .about-partners .owl-carousel {
         margin-bottom: 40px;
-        padding-bottom: 40px;
     }
-    .partners .owl-carousel .item  {
+    .about-partners .owl-carousel .item  {
         text-align: center;
     }
-    .partners .owl-carousel .item img {
-        max-height: 115px;
+    .about-partners .owl-carousel .item img {
+        height: 80px !important;
         width: auto;
         display: inline;
         max-width: 100%;
-        height: auto;
+        width: auto !important;
     }
-    .partners .owl-carousel .owl-nav.disabled {
+    .about-partners .owl-carousel .owl-nav.disabled {
         display: none !important;
     }
 

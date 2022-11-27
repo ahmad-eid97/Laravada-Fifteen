@@ -93,9 +93,9 @@ export default {
 }
 </script>
 <style lang="scss">
-    .counter-area {
+    /* .counter-area {
         padding: 100px 0 70px;
-    }
+    } */
     .section-title span {
         margin-bottom: 8px;
         font-weight: 600;
@@ -104,11 +104,11 @@ export default {
     .sp-color2 {
         color: #0071dc;
     }
-    .counter-area .section-title h2 {
+    /* .counter-area .section-title h2 {
         max-width: 560px;
         margin-left: auto;
         margin-right: auto;
-    }
+    } */
     .section-title h2 {
         font-size: 35px;
         font-weight: 600;
@@ -120,11 +120,11 @@ export default {
     .section-title h2 span {
         font-size: 35px !important;
     }
-    .counter-area .section-title p {
+    /* .counter-area .section-title p {
         margin-left: auto;
         margin-right: auto;
         max-width: 720px;
-    }
+    } */
     .section-title p {
         padding-top: 10px;
         margin-bottom: 0;
@@ -133,80 +133,5 @@ export default {
     }
     .pt-45 {
         padding-top: 45px;
-    }
-    .counter-another-content {
-        margin-bottom: 25px;
-        padding-left: 90px;
-        position: relative;
-    }
-    .counter-another-content h3 {
-        color: #252525;
-        font-size: 35px;
-        line-height: 1;
-        margin-bottom: 8px;
-    }
-    .counter-another-content span {
-        font-size: 35px !important;
-        color: #444;
-        margin-bottom: 0;
-        font-weight: 600;
-        @include xs {
-        font-size: 25px !important;
-        }
-    }
-    .counter-another-content svg {
-        position: absolute;
-        line-height: 1;
-        font-size: 60px;
-        top: 3px;
-        left: 0;
-        color: var(--main-color);
-    }
-    @include md {
-    .counter-another-content {
-        padding: 0 !important;
-    }
-    .counter-another-content h3 span {
-        font-size: 25px;
-    }
-    .counter-another-content svg {
-        font-size: 50px;
-        position: relative;
-    }
-    }
-
-    @include sm {
-    .counter-another-content {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 20px;
-        padding: 0 !important;
-    }
-    .counter-another-content h3 span {
-        font-size: 27px;
-    }
-    .counter-another-content svg {
-        font-size: 50px;
-        position: relative;
-    }
-    }
-
-    @include xs {
-    .counter-another-content {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 20px;
-        padding: 0 !important;
-        width: 100%;
-    }
-    .counter-another-content h3 span {
-        font-size: 20px;
-    }
-    .counter-another-content svg {
-        font-size: 40px;
-        position: relative;
-    }
     }
 </style>
