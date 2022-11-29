@@ -4,7 +4,7 @@
         <app-home-slider :sliderData="sliderData"></app-home-slider>
         <!-- Slick Section End -->
         
-        <app-home-feature></app-home-feature>
+        <app-home-feature :services="services"></app-home-feature>
 
         <app-home-qoute></app-home-qoute>
 
@@ -12,15 +12,16 @@
         <app-home-why></app-home-why>
         <!-- WHY WORK WITH US End -->
         <!-- testimonials Section Start -->
-        <app-home-testimonials></app-home-testimonials>
+        <app-home-testimonials :testimonials="testimonials"></app-home-testimonials>
         <!-- testimonials Section End --> 
-        <app-home-countdown></app-home-countdown>
+        <app-home-countdown :counter="counter"></app-home-countdown>
 
         <app-home-technology></app-home-technology>
+        <app-home-qoute-2></app-home-qoute-2>
 
-        <app-home-team></app-home-team>
+        <app-home-team :team="team"></app-home-team>
 
-        <app-home-blogs></app-home-blogs>
+        <app-home-blogs :blogs="blogs"></app-home-blogs>
 
         
         <!-- <app-home-contact-divider></app-home-contact-divider> -->
@@ -57,6 +58,32 @@ import AppHomeBlogs from '../components/home/AppHomeBlogs.vue'
 
 export default {
   name: 'Home',
+  async asyncData({ $axios, app }) {
+    const sliderData = await $axios.get('/sliders');
+
+    const blogs = await $axios.get('/blogs?latest=1');
+
+    const services = await $axios.get('/services');
+
+    const testimonials = await $axios.get('/testimonials');
+
+    const team = await $axios.get('/teams');
+
+    const counter = await $axios.get('/sections/counter_success', {
+      headers: {
+        "Accept-Language": app.i18n.locale
+      }
+    });
+
+    return {
+      sliderData: sliderData.data.data.sliders,
+      blogs: blogs.data.data.blogs,
+      services: services.data.data.services,
+      testimonials: testimonials.data.data.testimonials,
+      team: team.data.data.teams,
+      counter: counter.data.data,
+    }
+  },
   components: {
     AppHomeSlider,
     AppHomeFeature,
@@ -72,12 +99,5 @@ export default {
     // AppHomeNews,
     // AppHomeServicesOffers
   },
-  async asyncData({ $axios }) {
-    const sliderData = await $axios.get('/sliders');
-
-    return {
-      sliderData: sliderData.data.data.sliders
-    }
-  }
 }
 </script>

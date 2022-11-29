@@ -11,119 +11,24 @@
             <div class="row">
                 <div class="col-12 slider-container">
                     <swiper :options="swiperOption" class="owl-carousel">
-                        <swiper-slide>
+                        <swiper :options="swiperOption" class="team">
+                            <swiper-slide v-for="member in team" :key="member.id">
                             <div class="item">
                                 <div class=" projects-col">
 
                                     <div class="">
-                                        <img src="/assets/images/team.jpg" alt="">
+                                        <img :src="member.image" :alt="member.title">
                                     </div>
                                     <div class="content">
-                                        <h4>RICHARD SWIFT</h4>
-                                        <h5>junior consultant</h5>
-                                        <h6>Donec vestibulum lectus sem, vel convallis ligula commodo ac.</h6>
-                                        <h5>tel. 001 234 56 789</h5>
-                                        <h3>richard@your-website.com</h3>
+                                        <h4>{{member.name}}</h4>
+                                        <h5>{{member.job}}</h5>
+                                        <h6>{{member.description}}</h6>
 
                                     </div>
                                 </div>
                             </div>
-                        </swiper-slide>
-
-                        <swiper-slide>
-                            <div class="item">
-                                <div class=" projects-col">
-
-                                    <div class="">
-                                        <img src="/assets/images/team.jpg" alt="">
-                                    </div>
-                                    <div class="content">
-                                        <h4>MIRIAM GREENWOOD</h4>
-                                        <h5>consultant</h5>
-                                        <h6>Donec vestibulum lectus sem, vel convallis ligula commodo ac.</h6>
-                                        <h5>tel. 001 234 56 789</h5>
-                                        <h3>miriam@your-website.com</h3>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </swiper-slide>
-
-                        <swiper-slide>
-                            <div class="item">
-                                <div class=" projects-col">
-
-                                    <div class="">
-                                        <img src="/assets/images/team.jpg" alt="">
-                                    </div>
-                                    <div class="content">
-                                        <h4>RICHARD SWIFT</h4>
-                                        <h5>junior consultant</h5>
-                                        <h6>Donec vestibulum lectus sem, vel convallis ligula commodo ac.</h6>
-                                        <h5>tel. 001 234 56 789</h5>
-                                        <h3>richard@your-website.com</h3>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </swiper-slide>
-
-                        <swiper-slide>
-                            <div class="item">
-                                <div class=" projects-col">
-
-                                    <div class="">
-                                        <img src="/assets/images/team.jpg" alt="">
-                                    </div>
-                                    <div class="content">
-                                        <h4>MIRIAM GREENWOOD</h4>
-                                        <h5>consultant</h5>
-                                        <h6>Donec vestibulum lectus sem, vel convallis ligula commodo ac.</h6>
-                                        <h5>tel. 001 234 56 789</h5>
-                                        <h3>miriam@your-website.com</h3>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </swiper-slide>
-
-                        <swiper-slide>
-                            <div class="item">
-                                <div class=" projects-col">
-
-                                    <div class="">
-                                        <img src="/assets/images/team.jpg" alt="">
-                                    </div>
-                                    <div class="content">
-                                        <h4>RICHARD SWIFT</h4>
-                                        <h5>junior consultant</h5>
-                                        <h6>Donec vestibulum lectus sem, vel convallis ligula commodo ac.</h6>
-                                        <h5>tel. 001 234 56 789</h5>
-                                        <h3>richard@your-website.com</h3>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </swiper-slide>
-
-                        <swiper-slide>
-                            <div class="item">
-                                <div class=" projects-col">
-
-                                    <div class="">
-                                        <img src="/assets/images/team.jpg" alt="">
-                                    </div>
-                                    <div class="content">
-                                        <h4>MIRIAM GREENWOOD</h4>
-                                        <h5>consultant</h5>
-                                        <h6>Donec vestibulum lectus sem, vel convallis ligula commodo ac.</h6>
-                                        <h5>tel. 001 234 56 789</h5>
-                                        <h3>miriam@your-website.com</h3>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </swiper-slide>
+                            </swiper-slide>
+                        </swiper>
                     </swiper>
                     <font-awesome-icon class="next" icon="fa-solid fa-angle-right" />
                     <font-awesome-icon class="prev" icon="fa-solid fa-angle-left" />
@@ -136,6 +41,7 @@
 <script>
 export default {
     name: 'AppHomeTeam',
+    props: ["team"],
     data() {
         return {
             swiperOption: {
@@ -224,7 +130,8 @@ export default {
 
 .team img {
     border-radius: 50%;
-    width: 150px;
+    width: 70%;
+    height: 200px;
     margin-bottom: 30px;
     animation: border-transform 15s infinite ease-in-out !important;
 }
