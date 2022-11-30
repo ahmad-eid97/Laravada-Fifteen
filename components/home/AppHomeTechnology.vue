@@ -6,37 +6,16 @@
                     <div class="technology-right">
                         <div class="section-title">
                             <span class="sp-color2">Technology Index</span>
-                            <h2>We Deliver Our Best Solution With The Goal of Trusting</h2>
+                            <h2>{{solutions.find(one => one.key === 'solutions_title').value}}</h2>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae ante eget odio egestas pretium. Vestibulum sagittis dictum sem, imperdiet consectetur nunc vulputate non.
+                                {{solutions.find(one => one.key === 'solutions_description').value}}
                             </p>
                         </div>
-                        <div class="row">
-                            <div class="col-lg-3 col-6 col-sm-3">
+                        <div class="row justify-content-center">
+                            <div v-for="item in solutions.find(one => one.key === 'solutions_list').value" :key="item" class="col-lg-3 col-6 col-sm-3">
                                 <div class="technology-item">
-                                    <font-awesome-icon icon="fa-brands fa-android" />
-                                    <h3>Android</h3>
-                                </div>
-                            </div>
-        
-                            <div class="col-lg-3 col-6 col-sm-3">
-                                <div class="technology-item">
-                                    <font-awesome-icon icon="fa-solid fa-desktop" />
-                                    <h3>Web</h3>
-                                </div>
-                            </div>
-        
-                            <div class="col-lg-3 col-6 col-sm-3">
-                                <div class="technology-item">
-                                    <font-awesome-icon icon="fa-brands fa-apple" />
-                                    <h3>ios</h3>
-                                </div>
-                            </div>
-        
-                            <div class="col-lg-3 col-6 col-sm-3">
-                                <div class="technology-item">
-                                    <font-awesome-icon icon="fa-solid fa-tv" />
-                                    <h3>TV</h3>
+                                    <font-awesome-icon :icon="item.icon" />
+                                    <h3>{{item.title}}</h3>
                                 </div>
                             </div>
                         </div>
@@ -57,6 +36,7 @@
 
 export default {
     name: 'AppHomeTechnology',
+    props: ["solutions"],
     components: {},
     data() {
         return {

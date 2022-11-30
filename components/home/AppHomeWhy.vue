@@ -13,75 +13,13 @@
                         <h3>
                             5 MAIN REASONS TO CHOOSE US
                         </h3>
-                        <div class="about-item mb-20 d-flex">
-                            
-                            <div class="about-icon">
-                                <font-awesome-icon icon="fa-solid fa-1" />
-                            </div>
+                        <div v-for="(feature, index) in features.find(one => one.key === 'features_text_list').value" :key="index" class="about-item mb-20">
                             <div class="about-details">
-                                <p> Because acting with lorm ipsum integrity ipsum porta maximus, odio augue ullam
-                                    rutrum velit sit tincidunt elit.</p>
+                                <p>{{feature.description}}</p>
 
                             </div>
-                        </div>
-                        <div class="about-item mb-20 d-flex">
-                            
                             <div class="about-icon">
-                                <font-awesome-icon icon="fa-solid fa-2" />
-                                
-                            </div>
-                            <div class="about-details">
-                                <p> Because acting with lorm ipsum integrity ipsum porta maximus, odio augue ullam
-                                    rutrum velit sit tincidunt elit.</p>
-
-                            </div>
-                        </div>
-                        <div class="about-item mb-20 d-flex">
-                            
-                            <div class="about-icon">
-                                <font-awesome-icon icon="fa-solid fa-3" />
-                                
-                            </div>
-                            <div class="about-details">
-                                <p> Because acting with lorm ipsum integrity ipsum porta maximus, odio augue ullam
-                                    rutrum velit sit tincidunt elit.</p>
-
-                            </div>
-                        </div>
-                        <div class="about-item mb-20 d-flex">
-                            
-                            <div class="about-icon">
-                                <font-awesome-icon icon="fa-solid fa-4" />
-                                
-                            </div>
-                            <div class="about-details">
-                                <p> Because acting with lorm ipsum integrity ipsum porta maximus, odio augue ullam
-                                    rutrum velit sit tincidunt elit.</p>
-
-                            </div>
-                        </div>
-                        <div class="about-item mb-20 d-flex">
-                            
-                            <div class="about-icon">
-                                <font-awesome-icon icon="fa-solid fa-5" />
-                                
-                            </div>
-                            <div class="about-details">
-                                <p> Because acting with lorm ipsum integrity ipsum porta maximus, odio augue ullam
-                                    rutrum velit sit tincidunt elit.</p>
-
-                            </div>
-                        </div>
-                        <div class="about-item mb-20 d-flex">
-                            
-                            <div class="about-icon">
-                                <font-awesome-icon icon="fa-solid fa-6" />
-                                
-                            </div>
-                            <div class="about-details">
-                                <p> Because acting with lorm ipsum integrity ipsum porta maximus, odio augue ullam
-                                    rutrum velit sit tincidunt elit.</p>
-
+                                <font-awesome-icon :icon="`fa-solid fa-${index+1}`" />
                             </div>
                         </div>
                     </div>
@@ -107,63 +45,15 @@
                             </div>
                         </div>
                         <div class="about-us-main">
-                            <h4 class="about-us-main-icon">
-                                <div v-if="show == 'show1'" class="about-us-main-content">
+                            <h4 v-for="(feature, index) in features.find(one => one.key === 'features_text_list').value.slice(0, 5)" :key="index" class="about-us-main-icon">
+                                <div v-if="show == `show${index+1}`" class="about-us-main-content">
                                     <font-awesome-icon icon="fa-solid fa-user-tie" />
                                     <h2>
-                                        BRILLIANT TEAM
+                                        {{feature.title}}
                                     </h2>
 
                                     <h3>
-                                        Nunc facilisis mauris id luctus nunc amet lacus faucibus lorem.
-                                    </h3>
-                                </div>
-                            </h4>
-                            <h4 class="about-us-main-icon">
-                                <div v-if="show == 'show2'" class="about-us-main-content">
-                                    <font-awesome-icon icon="fa-solid fa-gears" />
-                                    <h2>
-                                        Creative & Professional
-                                    </h2>
-
-                                    <h3>
-                                        Pellen tesque habitant morbi tristique amet glavrida senectu.
-                                    </h3>
-                                </div>
-                            </h4>
-                            <h4 class="about-us-main-icon">
-                                <div v-if="show == 'show3'" class="about-us-main-content">
-                                    <font-awesome-icon icon="fa-solid fa-comments" />
-                                    <h2>
-                                        Complex Sollutions
-                                    </h2>
-
-                                    <h3>
-                                        Lorem ipsum – tesque morbi dolor for nulla tristique senectu.
-                                    </h3>
-                                </div>
-                            </h4>
-                            <h4 class="about-us-main-icon">
-                                <div v-if="show == 'show4'" class="about-us-main-content">
-                                    <font-awesome-icon icon="fa-solid fa-flag" />
-                                    <h2>
-                                        100% Result Guarantee
-                                    </h2>
-
-                                    <h3>
-                                        Dolor glavrida amet habitant morbi dolor agalvida – for tristique lorem senectu.
-                                    </h3>
-                                </div>
-                            </h4>
-                            <h4 class="about-us-main-icon">
-                                <div v-if="show == 'show5'" class="about-us-main-content">
-                                    <font-awesome-icon icon="fa-solid fa-briefcase" />
-                                    <h2>
-                                        Industry Experience
-                                    </h2>
-
-                                    <h3>
-                                        Nullam faucibus dictum nibh vel tempor – at loem ipsum dapibus!
+                                        {{feature.description}}
                                     </h3>
                                 </div>
                             </h4>
@@ -185,6 +75,7 @@
 
 export default {
     name: 'AppHomeWhy',
+    props: ["features"],
     components: {},
     data() {
         return {
@@ -219,10 +110,12 @@ export default {
 .about-icon {
     display: inline-block;
     border: 3px solid var(--main-color);
-    padding: 0px 8px;
-    height: max-content;
     border-radius: 50px;
-    margin-right: 15px;
+    display: grid;
+    place-content: center;
+    width: 30px;
+    height: 30px;
+    font-size: 0.8rem;
 }
     .about-us {
         height: 442px !important;
@@ -303,6 +196,18 @@ export default {
         @include xs {
             margin: 0;
         }
+    }
+    .aboutus {
+        h3 {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 30px;
+        }
+    }
+    .about-item {
+        display: flex;
+        gap: 10px;
+        justify-content: flex-end;
     }
     @keyframes circle_pop {
         0%,
