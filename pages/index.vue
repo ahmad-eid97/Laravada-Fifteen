@@ -1,82 +1,86 @@
 <template>
   <div class="home">
-        <!-- Slick Section Start -->
-        <app-home-slider :sliderData="sliderData"></app-home-slider>
-        <!-- Slick Section End -->
-        
-        <app-home-feature :services="services"></app-home-feature>
+    <!-- Slick Section Start -->
+    <app-home-slider :sliderData="sliderData"></app-home-slider>
+    <!-- Slick Section End -->
 
-        <app-home-qoute></app-home-qoute>
+    <app-home-feature :services="services"></app-home-feature>
 
-        <!-- WHY WORK WITH US Start -->
-        <app-home-why :features="features"></app-home-why>
-        <!-- WHY WORK WITH US End -->
-        <!-- testimonials Section Start -->
-        <app-home-testimonials :testimonials="testimonials"></app-home-testimonials>
-        <!-- testimonials Section End --> 
-        <app-home-countdown :counter="counter"></app-home-countdown>
+    <app-home-qoute></app-home-qoute>
 
-        <app-home-technology :solutions="solutions"></app-home-technology>
-        <app-home-qoute-2></app-home-qoute-2>
+    <!-- WHY WORK WITH US Start -->
+    <app-hopm me-why :features="features"></app-hopm>
+    <!-- WHY WORK WITH US End -->
+    <!-- testimonials Section Start -->
+    <app-home-testimonials :testimonials="testimonials"></app-home-testimonials>
+    <!-- testimonials Section End -->
+    <app-home-countdown :counter="counter"></app-home-countdown>
 
-        <app-home-team :team="team"></app-home-team>
+    <app-home-technology :solutions="solutions"></app-home-technology>
+    <app-home-qoute-2></app-home-qoute-2>
 
-        <app-home-blogs :blogs="blogs"></app-home-blogs>
+    <app-home-team :team="team"></app-home-team>
 
-        
-        <!-- <app-home-contact-divider></app-home-contact-divider> -->
+    <app-home-blogs :blogs="blogs"></app-home-blogs>
 
+    <!-- <app-home-contact-divider></app-home-contact-divider> -->
 
-        <!-- SERVICES WE PROVIDESection Start -->
-        <!-- <app-home-services></app-home-services> -->
-        <!-- SERVICES WE PROVIDE Section End -->
+    <!-- SERVICES WE PROVIDESection Start -->
+    <!-- <app-home-services></app-home-services> -->
+    <!-- SERVICES WE PROVIDE Section End -->
 
+    <!-- <app-home-news></app-home-news> -->
 
-        <!-- <app-home-news></app-home-news> -->
-
-        <!-- Services Section Start -->
-        <!-- <app-home-services-offers></app-home-services-offers> -->
+    <!-- Services Section Start -->
+    <!-- <app-home-services-offers></app-home-services-offers> -->
   </div>
 </template>
 
 <script>
 // import AppHomeContactDivider from '../components/home/AppHomeContactDivider.vue'
-import AppHomeFeature from '../components/home/AppHomeFeature.vue'
-import AppHomeQoute from '../components/home/AppHomeQoute.vue'
+import AppHomeFeature from "../components/home/AppHomeFeature.vue";
+import AppHomeQoute from "../components/home/AppHomeQoute.vue";
 // import AppHomeNews from '../components/home/AppHomeNews.vue'
 // import AppHomeServices from '../components/home/AppHomeServices.vue'
 // import AppHomeServicesOffers from '../components/home/AppHomeServicesOffers.vue'
-import AppHomeSlider from '../components/home/AppHomeSlider.vue'
-import AppHomeTestimonials from '../components/home/AppHomeTestimonials.vue'
-import AppHomeWhy from '../components/home/AppHomeWhy.vue'
-import AppHomeTeam from '../components/home/AppHomeTeam.vue'
-import AppHomeCountdown from '../components/home/AppHomeCountdown.vue'
-import AppHomeTechnology from '../components/home/AppHomeTechnology.vue'
-import AppHomeBlogs from '../components/home/AppHomeBlogs.vue'
+import AppHomeSlider from "../components/home/AppHomeSlider.vue";
+import AppHomeTestimonials from "../components/home/AppHomeTestimonials.vue";
+import AppHomeWhy from "../components/home/AppHomeWhy.vue";
+import AppHomeTeam from "../components/home/AppHomeTeam.vue";
+import AppHomeCountdown from "../components/home/AppHomeCountdown.vue";
+import AppHomeTechnology from "../components/home/AppHomeTechnology.vue";
+import AppHomeBlogs from "../components/home/AppHomeBlogs.vue";
 // @ is an alias to /src
 
-
 export default {
-  name: 'Home',
+  name: "Home",
   async asyncData({ $axios, app }) {
-    const sliderData = await $axios.get('/sliders');
+    const sliderData = await $axios.get("/sliders");
 
-    const features = await $axios.get('/sections/features');
-
-    const solutions = await $axios.get('/sections/solutions');
-
-    const blogs = await $axios.get('/blogs?latest=1');
-
-    const services = await $axios.get('/services');
-
-    const testimonials = await $axios.get('/testimonials');
-
-    const team = await $axios.get('/teams');
-
-    const counter = await $axios.get('/sections/counter_success', {
+    const features = await $axios.get("/sections/features", {
       headers: {
-        "Accept-Language": app.i18n.locale
-      }
+        "Accept-Language": app.i18n.locale,
+      },
+    });
+
+    const solutions = await $axios.get("/sections/solutions", {
+      headers: {
+        "Accept-Language": app.i18n.locale,
+      },
+    });
+
+    const blogs = await $axios.get("/blogs?latest=1");
+
+    const services = await $axios.get("/services");
+
+    const testimonials = await $axios.get("/testimonials");
+
+    const team = await $axios.get("/teams");
+
+    const counter = await $axios.get("/sections/counter_success", {
+      headers: {
+        "Accept-Language": app.i18n.locale,
+      },
     });
 
     return {
@@ -88,7 +92,7 @@ export default {
       testimonials: testimonials.data.data.testimonials,
       team: team.data.data.teams,
       counter: counter.data.data,
-    }
+    };
   },
   components: {
     AppHomeSlider,
@@ -105,5 +109,5 @@ export default {
     // AppHomeNews,
     // AppHomeServicesOffers
   },
-}
+};
 </script>
