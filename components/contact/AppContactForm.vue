@@ -17,7 +17,7 @@
               <li>
                 <div class="content">
                   <div class="icon">
-                    <font-awesome-icon icon="fa-solid fa-phone-volume" />
+                    <i class="fa-solid fa-phone-volume"></i>
                   </div>
                   <i class="bx bx-phone-call"></i>
                   <h3>Phone Number</h3>
@@ -31,7 +31,7 @@
               <li>
                 <div class="content">
                   <div class="icon">
-                    <font-awesome-icon icon="fa-solid fa-location-dot" />
+                    <i class="fa-solid fa-location-dot"></i>
                   </div>
                   <h3>Address</h3>
                   <a href="#">{{
@@ -44,7 +44,7 @@
               <li>
                 <div class="content">
                   <div class="icon">
-                    <font-awesome-icon icon="fa-regular fa-message" />
+                    <i class="fa-regular fa-message"></i>
                   </div>
                   <h3>Contact Info</h3>
                   <a href="mailto:hello@techex.com">{{

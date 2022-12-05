@@ -11,9 +11,15 @@
         </p>
       </div>
       <div class="row pt-45">
-        <div v-for="item in counter.find(one => one.key === 'counter_success_list').value" :key="item" class="col-lg-3 col-md-3 col-sm-6">
+        <div
+          v-for="item in counter.find(
+            (one) => one.key === 'counter_success_list'
+          ).value"
+          :key="item"
+          class="col-lg-3 col-md-3 col-sm-6"
+        >
           <div class="counter-another-content">
-            <font-awesome-icon :icon="item.icon" />
+            <i :class="item.icon"></i>
             <div>
               <h3>
                 <VueJsCounter
@@ -24,7 +30,7 @@
                 ></VueJsCounter
                 >+
               </h3>
-              <span>{{item.title}}</span>
+              <span>{{ item.title }}</span>
             </div>
           </div>
         </div>
@@ -37,7 +43,7 @@
 import VueJsCounter from "vue-count-to";
 export default {
   name: "AppHomeCountdown",
-  props: ['counter'],
+  props: ["counter"],
   components: {
     VueJsCounter,
   },
@@ -110,7 +116,7 @@ export default {
   margin-bottom: 0;
   font-weight: 600;
 }
-.counter-another-content svg {
+.counter-another-content i {
   position: absolute;
   line-height: 1;
   font-size: 60px;
@@ -125,7 +131,7 @@ export default {
   .counter-another-content h3 span {
     font-size: 25px;
   }
-  .counter-another-content svg {
+  .counter-another-content i {
     font-size: 50px;
     position: relative;
   }
@@ -142,7 +148,7 @@ export default {
   .counter-another-content h3 span {
     font-size: 27px;
   }
-  .counter-another-content svg {
+  .counter-another-content i {
     font-size: 50px;
     position: relative;
   }
@@ -159,7 +165,7 @@ export default {
   .counter-another-content h3 span {
     font-size: 20px;
   }
-  .counter-another-content svg {
+  .counter-another-content i {
     font-size: 40px;
     position: relative;
   }
