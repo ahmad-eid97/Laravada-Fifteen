@@ -14,7 +14,7 @@
       </li>
     </ul>
     <CoolLightBox
-      :items="[...serviceDetails.gallery]"
+      :items="serviceDetails.gallery.map((one) => (one ? one : ''))"
       :index="imageIndex"
       @close="imageIndex = null"
     />
@@ -41,7 +41,11 @@ export default {
   },
   methods: {
     openGallery(i) {
+      console.log(i);
       this.imageIndex = i;
+      console.log(
+        this.serviceDetails.gallery.map((one) => (one ? one : ""))[i]
+      );
     },
   },
 };
