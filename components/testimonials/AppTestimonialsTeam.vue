@@ -5,7 +5,7 @@
         <span class="sp-color2">Our Team</span>
         <h2>Our Team Members</h2>
       </div>
-      <div class="row pt-45 team">
+      <div class="row pt-45 team" v-if="team.teams.length >= 1">
         <div
           v-for="member in team.teams"
           :key="member.id"
@@ -51,6 +51,7 @@ export default {
   animation: border-transform 15s infinite ease-in-out !important;
   margin-bottom: 15px;
   width: 80%;
+  height: 200px;
   margin: 15px auto;
 }
 

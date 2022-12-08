@@ -6,7 +6,7 @@
         <h2>Let’s Check Some Latest Blog</h2>
       </div>
 
-      <div class="row pt-45 justify-content-center">
+      <div class="row pt-45 justify-content-center" v-if="blogs.length >= 1">
         <div
           v-for="blog in blogs.slice(0, 3)"
           :key="blog.id"

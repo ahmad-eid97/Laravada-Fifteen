@@ -1,9 +1,9 @@
 <template>
   <div class="side-bar-widget">
     <h3 class="title">Gallery</h3>
-    <ul class="blog-gallery">
+    <ul class="blog-gallery" v-if="blogDetails.gallery.length >= 1">
       <li
-        v-for="(image, index) in blogDetails.gallery"
+        v-for="(image, index) in blogDetails.gallery.slice(0, 6)"
         :key="index"
         style="display: inline-block; margin: 0 5px 5px 0"
       >
@@ -14,7 +14,7 @@
       </li>
     </ul>
     <CoolLightBox
-      :items="media"
+      :items="[...blogDetails.gallery]"
       :index="imageIndex"
       @close="imageIndex = null"
     />
@@ -69,6 +69,7 @@ export default {
   padding-left: 5px;
   padding-right: 5px;
   padding-top: 10px;
+  cursor: pointer;
 }
 .side-bar-widget .blog-gallery li a {
   display: block;
@@ -89,9 +90,10 @@ export default {
   border-radius: 12px;
 }
 .side-bar-widget .blog-gallery li a img {
-  width: 100%;
-  height: 100%;
+  width: 100px;
+  height: 100px;
   border-radius: 12px;
+  object-fit: contain;
 }
 .side-bar-widget .blog-gallery li a i {
   position: absolute;

@@ -87,7 +87,10 @@
             <div class="item">
               <div class="testimonials-col">
                 <div class="thumb">
-                  <img src="/assets/images/testimonials/6.jpg" alt="" />
+                  <img
+                    src="/assets/images/testimonials/6.jpg"
+                    alt="testimonials"
+                  />
                 </div>
                 <div class="content">
                   <h4>Finance and Banking</h4>

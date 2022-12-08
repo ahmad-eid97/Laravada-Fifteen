@@ -4,7 +4,11 @@
       <h2 class="text-center">Our Clients Feedback</h2>
       <div class="row testimonials-post">
         <div class="col-md-12">
-          <swiper :options="swiperOption" class="owl-carousel">
+          <swiper
+            :options="swiperOption"
+            class="owl-carousel"
+            v-if="testimonials.length >= 1"
+          >
             <swiper-slide v-for="item in testimonials" :key="item.id">
               <div class="item">
                 <div class="row align-items-center">

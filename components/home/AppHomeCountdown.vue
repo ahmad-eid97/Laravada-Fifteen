@@ -10,7 +10,10 @@
           vulputate cursus a sit amet mauris Morbi accumsan ipsum velit.
         </p>
       </div>
-      <div class="row pt-45">
+      <div
+        class="row pt-45"
+        v-if="counter.find((one) => one.key === 'counter_success_list').value"
+      >
         <div
           v-for="item in counter.find(
             (one) => one.key === 'counter_success_list'

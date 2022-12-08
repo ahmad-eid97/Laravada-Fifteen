@@ -9,7 +9,11 @@
       <div class="row">
         <div class="col-12 slider-container">
           <swiper :options="swiperOption" class="owl-carousel">
-            <swiper :options="swiperOption" class="team">
+            <swiper
+              :options="swiperOption"
+              class="team"
+              v-if="team.length >= 1"
+            >
               <swiper-slide v-for="member in team" :key="member.id">
                 <div class="item">
                   <div class="projects-col">

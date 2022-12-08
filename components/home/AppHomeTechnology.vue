@@ -18,7 +18,10 @@
                 }}
               </p>
             </div>
-            <div class="row justify-content-center">
+            <div
+              class="row justify-content-center"
+              v-if="solutions.find((one) => one.key === 'solutions_list').value"
+            >
               <div
                 v-for="item in solutions.find(
                   (one) => one.key === 'solutions_list'

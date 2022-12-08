@@ -5,12 +5,12 @@
         <span class="sp-color2">Latest Blog</span>
         <h2>Let’s Check Some Latest Blog</h2>
       </div>
-      <div class="row pt-45">
+      <div class="row pt-45" v-if="blogs.blogs.length >= 1">
         <div
           v-for="blog in blogs.blogs"
           :key="blog.id"
           class="col-lg-4 col-md-6"
-          @click="$router.push(`/blog/${blog.id}`)"
+          @click="$router.push(localePath(`/blog/${blog.id}`))"
         >
           <div class="blog-card">
             <div class="blog-img">

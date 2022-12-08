@@ -11,12 +11,12 @@
           nec
         </p>
       </div>
-      <div class="row pt-45">
+      <div class="row pt-45" v-if="services.services.length >= 1">
         <div
           v-for="service in services.services"
           :key="service.id"
-          class="col-lg-3 col-sm-6 col-md-4"
-          @click="$router.push(`/service/${service.id}`)"
+          class="col-lg-3 col-sm-6 col-md-4 mb-4"
+          @click="$router.push(localePath(`/service/${service.id}`))"
         >
           <div class="services-card services-style-bg">
             <div class="icon">
@@ -97,6 +97,8 @@ export default {
   z-index: 1;
   margin-bottom: 30px;
   color: #252525;
+  height: 100%;
+  cursor: pointer;
 }
 .services-card h3 a {
   color: #252525;
@@ -168,6 +170,9 @@ export default {
   margin-bottom: 12px;
   -webkit-transition: 0.5s;
   transition: 0.5s;
+}
+.services-card:hover .icon i {
+  color: var(--main-color);
 }
 .services-card a {
   color: #212934;
