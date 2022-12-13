@@ -20,7 +20,7 @@
         </p>
       </div>
       <div class="d-flex">
-        <form class="searchform mini-widget-searchform">
+        <form class="searchform mini-widget-searchform" :class="$i18n.locale === 'ar' ? 'arabic' : ''">
           <input
             type="text"
             class="field searchform-s"
@@ -128,12 +128,16 @@ export default {
 }
 .subnav-conatiner .searchform a {
   color: #fff;
-  right: 15px;
+  right: 10px;
   width: 16px;
   position: absolute;
   justify-content: center;
-  top: 0;
+  top: 2px;
   height: 100%;
+}
+.subnav-conatiner .searchform.arabic a {
+  right: unset;
+  left: 10px;
 }
 .subnav-conatiner .searchform a i {
   vertical-align: middle;
