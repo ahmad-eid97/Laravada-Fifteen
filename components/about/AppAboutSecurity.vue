@@ -11,8 +11,8 @@
         <div
           v-for="service in servicesSection.slice(0, 6)"
           :key="service.id"
-          class="col-lg-4 col-sm-6"
-          @click="$router.push(`/service/${service.id}`)"
+          class="col-lg-4 col-sm-6 mb-4"
+          @click="$router.push(localePath(`/service/${service.id}`))"
         >
           <div class="security-card">
             <div class="icon">
@@ -26,7 +26,10 @@
         </div>
       </div>
       <div class="customBtn">
-        <button class="customBtn" @click="$router.push('/services')">
+        <button
+          class="customBtn"
+          @click="$router.push(localePath('/services'))"
+        >
           See More
         </button>
       </div>
@@ -44,12 +47,12 @@ export default {
 </script>
 
 <style lang="scss">
-/* .section-title {
+.security-area .section-title {
   margin: 0 auto;
   padding: 0;
   position: relative;
   text-align: center;
-} */
+}
 .security-area .section-title span {
   margin-bottom: 8px;
   font-weight: 600;
@@ -80,6 +83,8 @@ export default {
   z-index: 1;
   margin-bottom: 30px;
   color: #212529;
+  height: 100%;
+  cursor: pointer;
 }
 .security-card h3 a {
   color: #212529;
@@ -166,7 +171,7 @@ button.customBtn {
   letter-spacing: 2px;
   font-size: 18px;
   color: rgb(255, 255, 255);
-  background-color: #74c5da;
+  background-color: #000;
   line-height: 17px;
   min-width: 200px;
   text-transform: uppercase;

@@ -85,7 +85,7 @@ export default {
 .counter-area .section-title h2 {
   max-width: 600px;
   color: #212529;
-  font-size: 35px !important;
+  font-size: 35px;
   font-weight: 800;
   letter-spacing: -1px;
   line-height: 42px;
@@ -105,7 +105,7 @@ export default {
 .section-title p {
   padding-top: 10px;
   margin-bottom: 0;
-  max-width: 530px;
+  /* max-width: 530px; */
   color: #444;
 }
 .pt-45 {
@@ -113,32 +113,35 @@ export default {
 }
 .counter-another-content {
   margin-bottom: 25px;
-  padding-left: 90px;
+  /* padding-left: 90px; */
   position: relative;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 .counter-another-content h3 {
   color: #212529;
-  font-size: 35px !important;
+  font-size: 35px;
   line-height: 1;
   margin-bottom: 8px;
 }
 
 .counter-another-content h3 span {
   color: #212529;
-  font-size: 35px !important;
+  font-size: 35px;
   line-height: 1;
   margin-bottom: 8px;
 }
 .counter-another-content span {
+  font-size: 17px;
   color: #444;
   margin-bottom: 0;
   font-weight: 600;
-  font-size: 17px !important;
 }
 .counter-another-content i {
-  position: absolute;
+  /* position: absolute; */
   line-height: 1;
-  font-size: 60px !important;
+  font-size: 60px;
   top: 3px;
   left: 0;
   color: var(--main-color);
@@ -152,7 +155,7 @@ export default {
     font-size: 25px;
   }
   .counter-another-content i {
-    font-size: 50px !important;
+    font-size: 50px;
     position: relative;
   }
 }

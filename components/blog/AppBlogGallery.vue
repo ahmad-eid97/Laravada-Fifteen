@@ -69,7 +69,6 @@ export default {
   padding-left: 5px;
   padding-right: 5px;
   padding-top: 10px;
-  cursor: pointer;
 }
 .side-bar-widget .blog-gallery li a {
   display: block;

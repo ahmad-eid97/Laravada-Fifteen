@@ -57,13 +57,6 @@ export default {
 </script>
 
 <style>
-/* .section-title {
-  margin: 0 auto;
-  padding: 0;
-  position: relative;
-  text-align: center;
-} */
-
 .services-style-area .section-title span {
   margin-bottom: 8px;
   font-weight: 600;
@@ -170,9 +163,6 @@ export default {
   margin-bottom: 12px;
   -webkit-transition: 0.5s;
   transition: 0.5s;
-}
-.services-card:hover .icon i {
-  color: var(--main-color);
 }
 .services-card a {
   color: #212934;

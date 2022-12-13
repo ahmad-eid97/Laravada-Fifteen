@@ -7,7 +7,7 @@
                     <div class="text">
                         <img class="overlay" src="/assets/images/slider-over.png" alt="">
                         <h1>Laravada</h1>
-                        <p>The7 Welcomes Laravada</p>
+                        <p>We Welcome Laravada</p>
                     </div>
             </div>
 
@@ -31,7 +31,7 @@
                         v-show="c1"
                         :asNavFor="$refs.c1"
                         :slidesToShow="5"
-                        :focusOnSelect="true" :dots="false" :arrows="false" class="thumb">
+                        :focusOnSelect="true" :dots="false" :arrows="false" class="thumb" :class="$i18n.locale === 'ar' ? 'arabic' : ''">
                             <img src="/assets/images/slide-1.jpg" class="img-fluid">  
                             <img src="/assets/images/slide-2.jpg" class="img-fluid"> 
                             <img src="/assets/images/slide-3.jpg" class="img-fluid"> 
@@ -141,6 +141,17 @@ export default {
         position: absolute !important;
         bottom: 0;
         right: 0;
+        z-index: 3;
+        background: rgb(21, 26, 99);
+        padding: 5px;
+    }
+    
+    .home-slider .thumb.arabic  {
+        width: 400px;
+        position: absolute !important;
+        bottom: 0;
+        right: unset;
+        left: 0;
         z-index: 3;
         background: rgb(21, 26, 99);
         padding: 5px;

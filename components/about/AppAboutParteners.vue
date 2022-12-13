@@ -56,12 +56,12 @@ export default {
 </script>
 <style>
 .about-partners {
-  padding: 45px 100px 15px !important;
+  padding: 45px 100px 0 !important;
   background-color: var(--main-color) !important;
 }
 .about-partners::before {
-  content: "";
-  /* position: absolute; */
+  /* content: "";
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
@@ -70,7 +70,7 @@ export default {
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url(/assets/images/brand-bg.png);
+  background-image: url(/assets/images/brand-bg.png); */
 }
 .about-partners .owl-carousel {
   margin-bottom: 40px;

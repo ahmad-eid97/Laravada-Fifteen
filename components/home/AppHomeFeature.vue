@@ -1,68 +1,24 @@
 <template>
   <section class="features">
     <div class="container">
-      <div class="row gy-4 justify-content-center">
-        <div class="col-12 text-center">
+      <div class="row gy-4 justify-content-center" v-if="services.length >= 1">
+        <div class="col-12 text-center pt-4 pb-4">
           <h2>SERVICES WE PROVIDE</h2>
         </div>
-        <div class="col-lg-6 col-auto">
+        <div
+          v-for="service in services.slice(0, 4)"
+          :key="service.id"
+          class="col-lg-6 col-auto"
+        >
           <div class="services-card services-card-color-bg">
-            <i class="fa-solid fa-person-dots-from-line"></i>
+            <i :class="service.icon"></i>
             <h3>
-              <a href="service-details.html">IT Consulting</a>
+              <a href="service-details.html">{{ service.title }}</a>
             </h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse at ligula eget lectus consequat volutpat.
-            </p>
-            <a href="service-details.html" class="learn-btn"
+            <p>{{ service.short_description }}</p>
+            <nuxt-link :to="`/service/${service.id}`" class="learn-btn"
               >Learn More <i class="bx bx-chevron-right"></i
-            ></a>
-          </div>
-        </div>
-        <div class="col-lg-6 col-auto">
-          <div class="services-card services-card-color-bg">
-            <i class="fa-solid fa-cloud"></i>
-            <h3>
-              <a href="service-details.html">Cloud Computing</a>
-            </h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse at ligula eget lectus consequat volutpat.
-            </p>
-            <a href="service-details.html" class="learn-btn"
-              >Learn More <i class="bx bx-chevron-right"></i
-            ></a>
-          </div>
-        </div>
-        <div class="col-lg-6 col-auto">
-          <div class="services-card services-card-color-bg">
-            <i class="fa-solid fa-laptop-code"></i>
-            <h3>
-              <a href="service-details.html">Web Development</a>
-            </h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse at ligula eget lectus consequat volutpat.
-            </p>
-            <a href="service-details.html" class="learn-btn"
-              >Learn More <i class="bx bx-chevron-right"></i
-            ></a>
-          </div>
-        </div>
-        <div class="col-lg-6 col-auto">
-          <div class="services-card services-card-color-bg">
-            <i class="fa-solid fa-chart-area"></i>
-            <h3>
-              <a href="service-details.html">Business Reform</a>
-            </h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse at ligula eget lectus consequat volutpat.
-            </p>
-            <a href="service-details.html" class="learn-btn"
-              >Learn More <i class="bx bx-chevron-right"></i
-            ></a>
+            ></nuxt-link>
           </div>
         </div>
       </div>
@@ -73,6 +29,7 @@
 <script>
 export default {
   name: "AppHomeFeature",
+  props: ["services"],
   components: {},
   data() {
     return {};
@@ -85,7 +42,6 @@ export default {
 .features {
   padding: 30px 0;
 }
-
 .services-card {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.07);
   padding: 40px 30px 35px;
@@ -94,6 +50,7 @@ export default {
   position: relative;
   z-index: 1;
   margin-bottom: 30px;
+  height: 100%;
 }
 .services-card::before {
   content: "";
@@ -103,7 +60,7 @@ export default {
   right: 0;
   width: 90px;
   height: 90px;
-  background-color: #24b1ee;
+  background-color: var(--main-color);
   border-radius: 272px 0 0 0;
   opacity: 0.1;
   -webkit-transition: 0.7s;
@@ -118,7 +75,7 @@ export default {
   right: 0;
   width: 75px;
   height: 75px;
-  background-color: #24b1ee;
+  background-color: var(--main-color);
   border-radius: 170px 0 0 0;
   opacity: 0.1;
   -webkit-transition: 0.7s;
@@ -131,7 +88,7 @@ export default {
   opacity: 1;
 }
 .services-card i {
-  color: #24b1ee;
+  color: var(--main-color);
   font-size: 60px;
   line-height: 1;
   -webkit-transition: 0.7s;
@@ -172,8 +129,5 @@ export default {
 }
 .services-card:hover .learn-btn {
   color: #fff;
-}
-.features i {
-  max-width: 80px;
 }
 </style>

@@ -8,7 +8,7 @@
         style="display: inline-block; margin: 0 5px 5px 0"
       >
         <a @click="openGallery(index)">
-          <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
+          <i class="fa-solid fa-eye"></i>
           <img :src="image" alt="image" />
         </a>
       </li>
@@ -41,11 +41,7 @@ export default {
   },
   methods: {
     openGallery(i) {
-      console.log(i);
       this.imageIndex = i;
-      console.log(
-        this.serviceDetails.gallery.map((one) => (one ? one : ""))[i]
-      );
     },
   },
 };
@@ -59,6 +55,7 @@ export default {
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   padding-left: 0;
+  padding-right: 0;
   list-style-type: none;
   margin-left: -5px;
   margin-right: -5px;
@@ -76,14 +73,13 @@ export default {
   cursor: pointer;
 }
 .side-bar-widget .blog-gallery li a {
-  display: block;
+  display: grid;
+  place-content: center;
   position: relative;
 }
 .side-bar-widget .blog-gallery li a::before {
   content: "";
   position: absolute;
-  left: 0;
-  top: 0;
   width: 100%;
   height: 100%;
   background-color: var(--main-color);
@@ -102,20 +98,14 @@ export default {
 .side-bar-widget .blog-gallery li a i {
   position: absolute;
   z-index: 1;
-  top: 50%;
-  left: 30%;
-  right: 0;
   text-align: center;
-  -webkit-transform: translate(0, -50%);
-  transform: translate(0, -50%);
-  text-align: center;
-  background-color: transparent;
+  top: 30%;
+  left: 37%;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
   opacity: 0;
   visibility: hidden;
-  font-size: 35px;
-  font-family: boxicons;
+  font-size: 30px;
   color: #fff;
 }
 .side-bar-widget .blog-gallery li a:hover::before {
