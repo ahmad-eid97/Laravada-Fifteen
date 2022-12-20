@@ -1,7 +1,7 @@
 export default {
   // Target: https://go.nuxtjs.dev/config-target
-  target: "static",
-
+  ssr: true,
+  target: "server",
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: "Laravada",
@@ -59,6 +59,8 @@ export default {
     "bootstrap-vue/nuxt",
     "@nuxtjs/axios",
     "@nuxtjs/style-resources",
+    "cookie-universal-nuxt",
+    "@nuxtjs/auth-next",
   ],
   i18n: {
     locales: [

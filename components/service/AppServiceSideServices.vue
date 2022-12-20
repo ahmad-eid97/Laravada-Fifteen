@@ -1,7 +1,7 @@
 <template>
-  <div class="side-bar-widget">
+  <div class="side-bar-widget" v-if="serviceDetails.features.length >= 1">
     <h3 class="title">Our Services</h3>
-    <div class="side-bar-categories" v-if="serviceDetails.features.length >= 1">
+    <div class="side-bar-categories">
       <ul>
         <li v-for="feature in serviceDetails.features" :key="feature">
           <i class="fa-solid fa-circle-dot"></i>
