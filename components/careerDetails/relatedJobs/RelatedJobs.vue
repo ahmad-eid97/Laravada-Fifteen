@@ -1,7 +1,6 @@
 <template>
   <div class="relatedJobs">
-    <h6>Trending Jobs</h6>
-    <h1>All Popular Listed jobs</h1>
+    <h1>Related Jobs</h1>
     <div class="row justify-content-center">
       <div
         v-for="job in jobsList"
@@ -119,6 +118,7 @@ export default {
         padding: 5px 10px;
         border-radius: 5px;
         font-size: 1rem;
+        text-align: center;
       }
     }
   }
