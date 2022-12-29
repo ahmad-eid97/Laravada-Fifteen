@@ -52,6 +52,7 @@ export default {
 <style scoped lang="scss">
 .events {
   .container {
+    margin-bottom: 100px;
     margin-top: 100px;
   }
 }
