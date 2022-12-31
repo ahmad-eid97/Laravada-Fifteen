@@ -122,9 +122,12 @@ export default {
         return this.$toast.error("Email is invalid!");
       }
 
+      this.$store.state.showLoader = true;
+
       const response = await this.$axios.post("/users/auth/login", data);
 
       if (!response.data.success) {
+        this.$store.state.showLoader = false;
         return this.$toast.error(response.data.message);
       }
 
@@ -141,6 +144,8 @@ export default {
       });
 
       this.$router.push(this.localePath("/"));
+
+      this.$store.state.showLoader = false;
     },
   },
 };

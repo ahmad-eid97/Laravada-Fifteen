@@ -131,9 +131,12 @@ export default {
         return this.$toast.error("Email is invalid!");
       }
 
+      this.$store.state.showLoader = true;
+
       const response = await this.$axios.post("/users/auth/register", data);
 
       if (!response.data.success) {
+        this.$store.state.showLoader = false;
         if (response.data.data) {
           if (response.data.data.name) {
             response.data.data.name.forEach((error) => {
@@ -172,6 +175,8 @@ export default {
       });
 
       this.$router.push(this.localePath("/"));
+
+      this.$store.state.showLoader = false;
     },
   },
 };
