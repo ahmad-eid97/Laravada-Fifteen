@@ -16,7 +16,7 @@
     <b-navbar
       toggleable="lg"
       :class="{ onScroll: !topOfPage }"
-      class="navbar navbar-expand-lg navbar-light py-0"
+      class="navbar navbar-expand-lg navbar-light"
     >
       <b-navbar-brand :href="localePath('/')"
         ><img
@@ -24,7 +24,16 @@
           alt="logo"
           style="width: 150px; margin: 10px 0"
       /></b-navbar-brand>
-      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+      <div class="btn-container smallScr">
+        <div class="m-0 cartIcon" @click="openCart = !openCart">
+          <span>{{ $store.state.cartItems.length }}</span>
+          <i class="fa-regular fa-cart-plus"></i>
+        </div>
+        <div v-if="$store.state.user" class="logout" @click="logout">
+          <i class="fa-regular fa-right-from-bracket"></i>
+        </div>
+        <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+      </div>
       <b-collapse id="nav-collapse" is-nav>
         <ul class="navbar-nav me-auto">
           <li class="nav-item">
@@ -134,21 +143,29 @@
               >Events</nuxt-link
             >
           </li>
+          <li class="nav-item outLarge">
+            <nuxt-link
+              class="nav-link"
+              active-class="active"
+              aria-current="page"
+              :to="localePath('/login')"
+              v-if="$store.state.user"
+              @click="logout"
+              exact
+              >Logout</nuxt-link
+            >
+          </li>
         </ul>
-
-        <div class="btn-container">
-          <button class="btn nav-btn fw-bold">
-            Start a project <i class="bi bi-arrow-right-circle-fill mx-2"></i>
-          </button>
-          <div class="m-0 cartIcon" @click="openCart = !openCart">
-            <span>{{ $store.state.cartItems.length }}</span>
-            <i class="fa-regular fa-cart-plus"></i>
-          </div>
-          <div v-if="$store.state.user" class="logout" @click="logout">
-            <i class="fa-regular fa-right-from-bracket"></i>
-          </div>
-        </div>
       </b-collapse>
+      <div class="btn-container largeScr">
+        <div class="m-0 cartIcon" @click="openCart = !openCart">
+          <span>{{ $store.state.cartItems.length }}</span>
+          <i class="fa-regular fa-cart-plus"></i>
+        </div>
+        <div v-if="$store.state.user" class="logout" @click="logout">
+          <i class="fa-regular fa-right-from-bracket"></i>
+        </div>
+      </div>
     </b-navbar>
   </header>
 </template>
@@ -198,6 +215,9 @@ export default {
 };
 </script>
 <style lang="scss">
+nav {
+  padding: 10px 20px !important;
+}
 .onScroll {
   position: fixed;
   width: 100%;
@@ -268,6 +288,9 @@ export default {
   &.opened {
     transform: translateX(0);
   }
+  @include xs {
+    width: 350px;
+  }
 }
 .cartIcon {
   border: 1px solid var(--main-color);
@@ -278,6 +301,7 @@ export default {
   place-items: center;
   cursor: pointer;
   position: relative;
+  margin: 0 10px !important;
   span {
     position: absolute;
     top: -15px;
@@ -290,9 +314,17 @@ export default {
     display: grid;
     place-content: center;
     font-size: 1.1rem;
+    @include sm {
+      font-size: 1rem;
+    }
   }
   i {
     color: var(--main-color);
+  }
+  @include sm {
+    width: 40px;
+    height: 40px;
+    margin: 0 10px !important;
   }
   &:hover {
     background-color: var(--main-color);
@@ -312,6 +344,29 @@ export default {
   place-items: center;
   font-size: 1.2rem;
   cursor: pointer;
+  @include md {
+    display: none;
+  }
+}
+.outLarge {
+  display: none;
+  @include md {
+    display: inline;
+  }
+}
+.smallScr {
+  align-items: center;
+  display: none;
+  @include md {
+    display: flex;
+  }
+}
+.largeScr {
+  align-items: center;
+  display: flex;
+  @include md {
+    display: none;
+  }
 }
 .navbar {
   padding-right: 20px;
@@ -324,13 +379,17 @@ export default {
   height: 100%;
 }
 .dropdown {
-  min-height: 80px;
+  /* min-height: 80px; */
   @include sm {
-    min-height: 40px;
+    /* min-height: 40px; */
   }
 }
+.navbar-toggler {
+  box-shadow: none !important;
+  margin: 0;
+}
 .dropdown .nav-link {
-  min-height: 80px;
+  /* min-height: 80px; */
   @include sm {
     min-height: 40px;
   }

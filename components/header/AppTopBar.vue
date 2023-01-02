@@ -3,7 +3,7 @@
     <div
       class="subnav-conatiner d-flex align-items-center justify-content-between text-light reponsive-justify-content"
     >
-      <div class="d-flex fw-bold">
+      <div class="d-flex fw-bold info">
         <p>
           <span class="mx-1">
             <i class="fa-solid fa-phone"></i>
@@ -20,7 +20,10 @@
         </p>
       </div>
       <div class="d-flex">
-        <form class="searchform mini-widget-searchform" :class="$i18n.locale === 'ar' ? 'arabic' : ''">
+        <form
+          class="searchform mini-widget-searchform"
+          :class="$i18n.locale === 'ar' ? 'arabic' : ''"
+        >
           <input
             type="text"
             class="field searchform-s"
@@ -82,8 +85,14 @@ export default {
 <style lang="scss">
 .top_nav {
   background-color: var(--secondary-color);
-  @include sm {
+  /* @include sm {
     display: none;
+  } */
+}
+.top_nav .info {
+  display: flex !important;
+  @include md {
+    display: none !important;
   }
 }
 .subnav-conatiner {
