@@ -22,7 +22,7 @@
               <div class="details">
                 <div>
                   <h3>{{ item.title }}</h3>
-                  <p>Qunatity: {{ item.quantity }}</p>
+                  <p v-if="!item.type">Qunatity: {{ item.quantity }}</p>
                   <p>Price: {{ item.current_price }}</p>
                 </div>
               </div>
@@ -293,9 +293,6 @@ ${orderedItems.map(
         border: 1px solid #ccc;
         border-radius: 5px;
         outline: none;
-        &::placeholder {
-          color: rgb(151, 151, 151);
-        }
       }
     }
     .sendBox {
@@ -328,6 +325,7 @@ ${orderedItems.map(
         align-items: center;
         gap: 10px;
         justify-content: center;
+        border-radius: 10px;
         i {
           font-size: 1.5rem;
         }
