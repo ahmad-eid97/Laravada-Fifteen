@@ -2,7 +2,7 @@
   <div class="eventsList">
     <h5>Events</h5>
     <h1>Our Upcoming Events</h1>
-    <div class="row">
+    <div class="row justify-content-center">
       <div class="col-lg-6 mb-4" v-for="event in allEvents.events" :key="event">
         <div class="event">
           <div class="buy">

@@ -21,7 +21,7 @@
           class="col-lg-3 col-sm-6 col-md-4 mb-4"
           @click="$router.push(localePath(`/service/${service.id}`))"
         >
-          <div class="services-card services-style-bg">
+          <div class="service-card services-style-bg">
             <div class="icon">
               <i :class="service.icon"></i>
             </div>
@@ -101,7 +101,7 @@ export default {
 .services-style-area .section-title p {
   max-width: 600px;
 }
-.services-card {
+.service-card {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.07);
   padding: 40px 30px 35px;
   border-radius: 12px;
@@ -113,15 +113,15 @@ export default {
   height: 100%;
   cursor: pointer;
 }
-.services-card h3 a {
+.service-card h3 a {
   color: #252525;
   font-size: 22px;
 }
-.services-card:hover h3 a,
-.services-card:hover p {
+.service-card:hover h3 a,
+.service-card:hover p {
   color: #fff;
 }
-.services-card::before {
+.service-card::before {
   content: "";
   position: absolute;
   z-index: -1;
@@ -136,7 +136,7 @@ export default {
   transition: 0.7s;
 }
 
-.services-card::after {
+.service-card::after {
   content: "";
   position: absolute;
   z-index: -1;
@@ -150,19 +150,19 @@ export default {
   -webkit-transition: 0.7s;
   transition: 0.7s;
 }
-.services-card:hover::before {
+.service-card:hover::before {
   width: 100%;
   height: 100%;
   border-radius: 12px;
   opacity: 1;
 }
-.services-card .icon {
+.service-card .icon {
   font-size: 45px;
   width: 80px;
   height: 80px;
   line-height: 80px;
-  color: #fff;
-  background-color: var(--main-color);
+  color: #fff !important;
+  background-color: var(--main-color) !important;
   border-radius: 12px;
   display: inline-block;
   text-align: center;
@@ -170,13 +170,13 @@ export default {
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
-.services-card:hover .icon {
+.service-card:hover .icon {
   font-size: 45px;
   width: 80px;
   height: 80px;
   line-height: 80px;
-  color: var(--main-color);
-  background-color: #fff;
+  color: var(--main-color) !important;
+  background-color: #fff !important;
   border-radius: 12px;
   display: inline-block;
   text-align: center;
@@ -184,10 +184,10 @@ export default {
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
-.services-card a {
+.service-card a {
   color: #212934;
 }
-.services-card:hover a {
+.service-card:hover a {
   color: #fff;
 }
 </style>
