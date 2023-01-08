@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <!-- Slick Section Start -->
-    <app-home-slider :sliderData="sliderData"></app-home-slider>
+    <app-home-slider :slides="slides"></app-home-slider>
     <!-- Slick Section End -->
 
     <app-home-feature :services="services"></app-home-feature>
@@ -55,7 +55,11 @@ import AppHomeBlogs from "../components/home/AppHomeBlogs.vue";
 export default {
   name: "Home",
   async asyncData({ $axios, app }) {
-    const sliderData = await $axios.get("/sliders");
+    const slides = await $axios.get("/sliders", {
+      headers: {
+        "Accept-Language": app.i18n.locale,
+      },
+    });
 
     const features = await $axios.get("/sections/features", {
       headers: {
@@ -84,7 +88,7 @@ export default {
     });
 
     return {
-      sliderData: sliderData.data.data.sliders,
+      slides: slides.data.data.sliders,
       features: features.data.data,
       solutions: solutions.data.data,
       blogs: blogs.data.data.blogs,
