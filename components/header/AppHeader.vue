@@ -35,127 +35,34 @@
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
       </div>
       <b-collapse id="nav-collapse" is-nav>
-        <ul class="navbar-nav me-auto">
-          <li class="nav-item">
-            <nuxt-link
-              class="nav-link"
-              active-class="active"
-              aria-current="page"
-              :to="localePath('/')"
-              exact
-              >Home</nuxt-link
-            >
-          </li>
+        <b-navbar-nav class="align-items-center">
+          <b-nav-item
+            active-class="active"
+            :to="localePath(`/${item.link}`)"
+            exact
+            v-for="item in $store.state.topMenu"
+            :key="item.id"
+          >
+            <span v-if="!item.child.length">{{ item.label }}</span>
 
-          <li class="nav-item dropdown">
-            <dropdown-menu
-              v-model="show"
-              :hover="true"
-              :closeOnClickOutside="true"
-              :hover_time="10"
+            <b-dropdown
+              :text="item.label"
+              block
+              class="m-2 dropdownBtn"
+              v-if="item.child.length"
             >
-              <nuxt-link
-                class="nav-link dropdown-toggle"
-                active-class="active"
-                :to="localePath('/about')"
-                id="navbarDropdownMenuLink"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
+              <b-dropdown-item
+                v-for="child in item.child"
+                :key="child.id"
+                :to="localePath('/' + child.link)"
+                >{{ child.label }}</b-dropdown-item
               >
-                About Us
-              </nuxt-link>
-              <div slot="dropdown">
-                <a class="dropdown-item" href="#">dropdown link</a>
-                <a class="dropdown-item" href="#">dropdown link</a>
-                <a class="dropdown-item" href="#">dropdown link</a>
-              </div>
-            </dropdown-menu>
-          </li>
-
-          <li class="nav-item dropdown">
-            <dropdown-menu
-              v-model="show1"
-              :hover="true"
-              :closeOnClickOutside="true"
-              :hover_time="10"
-            >
-              <nuxt-link
-                class="nav-link dropdown-toggle"
-                active-class="active"
-                :to="localePath('/services')"
-                id="navbarDropdownMenuLink"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Services
-              </nuxt-link>
-              <div slot="dropdown">
-                <a class="dropdown-item" href="#">dropdown link</a>
-                <a class="dropdown-item" href="#">dropdown link</a>
-                <a class="dropdown-item" href="#">dropdown link</a>
-              </div>
-            </dropdown-menu>
-          </li>
-
-          <li class="nav-item">
-            <nuxt-link
-              class="nav-link"
-              active-class="active"
-              :to="localePath('/testimonials')"
-              >Testimmonials</nuxt-link
-            >
-          </li>
-          <li class="nav-item">
-            <nuxt-link
-              class="nav-link"
-              active-class="active"
-              :to="localePath('/blogs')"
-              >Blogs</nuxt-link
-            >
-          </li>
-          <li class="nav-item">
-            <nuxt-link
-              class="nav-link"
-              active-class="active"
-              :to="localePath('/contact')"
-              >Contact</nuxt-link
-            >
-          </li>
-          <li class="nav-item">
-            <nuxt-link
-              class="nav-link"
-              active-class="active"
-              aria-current="page"
-              :to="localePath('/careers')"
-              exact
-              >Career</nuxt-link
-            >
-          </li>
-          <li class="nav-item">
-            <nuxt-link
-              class="nav-link"
-              active-class="active"
-              aria-current="page"
-              :to="localePath('/events')"
-              exact
-              >Events</nuxt-link
-            >
-          </li>
-          <li class="nav-item outLarge">
-            <nuxt-link
-              class="nav-link"
-              active-class="active"
-              aria-current="page"
-              :to="localePath('/login')"
-              v-if="$store.state.user"
-              @click="logout"
-              exact
-              >Logout</nuxt-link
-            >
-          </li>
-        </ul>
+            </b-dropdown>
+          </b-nav-item>
+          <b-nav-item v-if="$store.state.user" @click="logout" class="outLarge">
+            Logout
+          </b-nav-item>
+        </b-navbar-nav>
       </b-collapse>
       <div class="btn-container largeScr">
         <div class="m-0 cartIcon" @click="openCart = !openCart">
@@ -412,6 +319,11 @@ nav {
     /* min-height: 40px; */
   }
 }
+.nav-item {
+  & > .dropdown {
+    display: none;
+  }
+}
 .navbar-toggler {
   box-shadow: none !important;
   margin: 0;
@@ -438,5 +350,31 @@ nav {
 .navbar .dropdown-menu a:hover {
   background-color: rgba(31, 169, 229, 0.1);
   color: var(--secondary-color);
+}
+.dropdownBtn {
+  margin: 0 !important;
+  button {
+    background: none !important;
+    padding: 0 !important;
+    text-transform: none !important;
+    font-size: 1.1rem !important;
+    font-family: unset !important;
+    font-weight: 700 !important;
+    box-shadow: none !important;
+    border: none !important;
+    min-width: 60px !important;
+    position: relative;
+    top: -3px;
+    color: #000;
+    position: relative;
+    top: 0px;
+    margin: 0 !important;
+    &:hover {
+      color: #000;
+    }
+  }
+  .dropdown-menu {
+    top: 40px !important;
+  }
 }
 </style>
