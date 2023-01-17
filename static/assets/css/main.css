@@ -117,7 +117,7 @@ hr {
 }
 
 ul.nav li.dropdown:hover ul.dropdown-menu {
-  display: block;
+  /* display: block; */
 }
 
 .nav-link.active {
@@ -641,13 +641,13 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
 
 @media (min-width: 768px) {
   .dropdown:hover .dropdown-menu {
-    display: block;
+    /* display: block; */
     margin-top: 0;
   }
 }
 @media (max-width: 800px) {
   .dropdown:hover .dropdown-menu {
-    display: none;
+    /* display: none; */
     margin-top: auto;
   }
 

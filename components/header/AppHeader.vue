@@ -362,7 +362,9 @@ nav {
     font-weight: 700 !important;
     box-shadow: none !important;
     border: none !important;
-    min-width: 60px !important;
+    min-width: unset !important;
+    width: 100%;
+    min-height: 30px;
     position: relative;
     top: -3px;
     color: #000;
