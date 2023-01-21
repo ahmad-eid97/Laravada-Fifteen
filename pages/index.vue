@@ -2,6 +2,8 @@
   <div class="home">
     <!-- Slick Section Start -->
     <app-home-slider :slides="slides"></app-home-slider>
+
+    <app-home-partners :partners="partners" />
     <!-- Slick Section End -->
 
     <app-home-feature :services="services"></app-home-feature>
@@ -55,6 +57,7 @@ import AppHomeTechnology from "../components/home/AppHomeTechnology.vue";
 import AppHomeBlogs from "../components/home/AppHomeBlogs.vue";
 import AppHomeActivities from "../components/home/AppHomeActivities.vue";
 import AppHomeSteps from "../components/home/AppHomeSteps.vue";
+import AppHomePartners from "../components/home/AppHomePartners.vue";
 // @ is an alias to /src
 
 export default {
@@ -65,6 +68,8 @@ export default {
         "Accept-Language": app.i18n.locale,
       },
     });
+
+    const partners = await $axios.get("/partners");
 
     const features = await $axios.get("/sections/features", {
       headers: {
@@ -107,6 +112,7 @@ export default {
     return {
       slides: slides.data.data.sliders,
       features: features.data.data,
+      partners: partners.data.data.partners,
       solutions: solutions.data.data,
       blogs: blogs.data.data.blogs,
       services: services.data.data.services,
@@ -131,6 +137,7 @@ export default {
     AppHomeBlogs,
     AppHomeActivities,
     AppHomeSteps,
+    AppHomePartners,
     // AppHomeNews,
     // AppHomeServicesOffers
   },
