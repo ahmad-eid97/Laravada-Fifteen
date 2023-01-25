@@ -11,7 +11,7 @@
           class="col-md-6"
           v-if="features.find((one) => one.key === 'features_text_list').value"
         >
-          <div class="aboutus right">
+          <div class="aboutus">
             <h3>5 MAIN REASONS TO CHOOSE US</h3>
             <div
               v-for="(feature, index) in features.find(
@@ -20,11 +20,11 @@
               :key="index"
               class="about-item mb-20"
             >
-              <div class="about-details">
-                <p>{{ feature.description }}</p>
-              </div>
               <div class="about-icon">
                 <i :class="`fa-solid fa-${index + 1}`"></i>
+              </div>
+              <div class="about-details">
+                <p>{{ feature.description }}</p>
               </div>
             </div>
           </div>
@@ -121,6 +121,132 @@ export default {
   },
   mounted() {
     this.autoPlay();
+
+    document
+      .querySelector(".about-sec")
+      .style.setProperty(
+        "--features-bg",
+        this.features.find(
+          (one) => one.key === "features_background_active_section"
+        ).value === "color"
+          ? this.features.find(
+              (one) => one.key === "features_background_color_section"
+            ).value
+          : `url(${
+              this.features.find(
+                (one) => one.key === "features_background_image_section"
+              ).value
+            })`
+      );
+
+    document
+      .querySelector(".about-sec")
+      .style.setProperty(
+        "--features-fontSize",
+        `${
+          this.features.find((one) => one.key === "features_font_size_section")
+            .value
+        }px`
+      );
+
+    if (
+      this.features.find(
+        (one) => one.key === "features_border_position_section"
+      ) &&
+      this.features.find(
+        (one) => one.key === "features_border_position_section"
+      ).value === "both"
+    ) {
+      document
+        .querySelector(".about-sec")
+        .style.setProperty(
+          "--features-border-top",
+          `${
+            this.features.find(
+              (one) => one.key === "features_border_size_section"
+            ).value
+          }px ${
+            this.features.find(
+              (one) => one.key === "features_border_type_section"
+            ).value
+          } ${
+            this.features.find(
+              (one) => one.key === "features_border_color_section"
+            ).value
+          }`
+        );
+
+      document
+        .querySelector(".about-sec")
+        .style.setProperty(
+          "--features-border-bottom",
+          `${
+            this.features.find(
+              (one) => one.key === "features_border_size_section"
+            ).value
+          }px ${
+            this.features.find(
+              (one) => one.key === "features_border_type_section"
+            ).value
+          } ${
+            this.features.find(
+              (one) => one.key === "features_border_color_section"
+            ).value
+          }`
+        );
+    } else if (
+      this.features.find(
+        (one) => one.key === "features_border_position_section"
+      ) &&
+      this.features.find(
+        (one) => one.key === "features_border_position_section"
+      ).value === "top"
+    ) {
+      document
+        .querySelector(".about-sec")
+        .style.setProperty(
+          "--features-border-top",
+          `${
+            this.features.find(
+              (one) => one.key === "features_border_size_section"
+            ).value
+          }px ${
+            this.features.find(
+              (one) => one.key === "features_border_type_section"
+            ).value
+          } ${
+            this.features.find(
+              (one) => one.key === "features_border_color_section"
+            ).value
+          }`
+        );
+    } else if (
+      this.features.find(
+        (one) => one.key === "features_border_position_section"
+      ) &&
+      this.features.find(
+        (one) => one.key === "features_border_position_section"
+      ).value === "bottom"
+    ) {
+      document
+        .querySelector(".about-sec")
+        .style.setProperty(
+          "--features-border-bottom",
+          `${
+            this.features.find(
+              (one) => one.key === "features_border_size_section"
+            ).value
+          }px ${
+            this.features.find(
+              (one) => one.key === "features_border_type_section"
+            ).value
+          } ${
+            this.features.find(
+              (one) => one.key === "features_border_color_section"
+            ).value
+          }`
+        );
+    }
   },
   methods: {
     autoPlay() {
@@ -141,7 +267,21 @@ export default {
 
 <style lang="scss">
 .about-sec {
-  padding: 30px;
+  padding: 80px 0;
+
+  --features-bg: #fff;
+  --features-fontSize: 20px;
+  --features-border-top: 0px solid #fff;
+  --features-border-bottom: 0px solid #fff;
+
+  background: var(--features-bg);
+  border-top: var(--features-border-top);
+  border-bottom: var(--features-border-bottom);
+  background-repeat: no-repeat;
+  background-size: cover;
+  h2 {
+    font-size: var(--features-fontSize);
+  }
 }
 .about-icon {
   display: inline-block;
@@ -229,6 +369,7 @@ export default {
   color: #fff !important;
 }
 .about-us-main-icon {
+  margin-top: 50px;
   @include xs {
     margin: 0;
   }
@@ -236,14 +377,20 @@ export default {
 .aboutus {
   h3 {
     display: flex;
-    justify-content: flex-end;
+    /* justify-content: flex-end; */
     margin-bottom: 30px;
   }
 }
 .about-item {
-  display: flex;
+  display: grid;
   gap: 10px;
-  justify-content: flex-end;
+  grid-template-columns: repeat(12, 1fr);
+  .about-details {
+    grid-column: span 11;
+  }
+  .about-icon {
+    grid-column: span 1;
+  }
 }
 @keyframes circle_pop {
   0%,

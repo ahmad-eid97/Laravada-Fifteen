@@ -282,7 +282,7 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
   text-align: center;
   color: white;
   width: 100%;
-  margin: 50px auto;
+  margin: 0px auto !important;
   height: 400px;
   font-weight: bold;
   background-attachment: fixed;

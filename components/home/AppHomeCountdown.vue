@@ -54,11 +54,156 @@ export default {
     return {};
   },
   methods: {},
+  mounted() {
+    document
+      .querySelector(".counter-area")
+      .style.setProperty(
+        "--counter-bg",
+        this.counter.find(
+          (one) => one.key === "counter_success_background_active_section"
+        ).value === "color"
+          ? this.counter.find(
+              (one) => one.key === "counter_success_background_color_section"
+            ).value
+          : `url(${
+              this.counter.find(
+                (one) => one.key === "counter_success_background_image_section"
+              ).value
+            })`
+      );
+
+    document
+      .querySelector(".counter-area")
+      .style.setProperty(
+        "--counter-fontSize",
+        `${
+          this.counter.find(
+            (one) => one.key === "counter_success_font_size_section"
+          ).value
+        }px`
+      );
+
+    if (
+      this.counter.find(
+        (one) => one.key === "counter_success_border_position_section"
+      ) &&
+      this.counter.find(
+        (one) => one.key === "counter_success_border_position_section"
+      ).value === "both"
+    ) {
+      document
+        .querySelector(".counter-area")
+        .style.setProperty(
+          "--counter-border-top",
+          `${
+            this.counter.find(
+              (one) => one.key === "counter_success_border_size_section"
+            ).value
+          }px ${
+            this.counter.find(
+              (one) => one.key === "counter_success_border_type_section"
+            ).value
+          } ${
+            this.counter.find(
+              (one) => one.key === "counter_success_border_color_section"
+            ).value
+          }`
+        );
+
+      document
+        .querySelector(".counter-area")
+        .style.setProperty(
+          "--counter-border-bottom",
+          `${
+            this.counter.find(
+              (one) => one.key === "counter_success_border_size_section"
+            ).value
+          }px ${
+            this.counter.find(
+              (one) => one.key === "counter_success_border_type_section"
+            ).value
+          } ${
+            this.counter.find(
+              (one) => one.key === "counter_success_border_color_section"
+            ).value
+          }`
+        );
+    } else if (
+      this.counter.find(
+        (one) => one.key === "counter_success_border_position_section"
+      ) &&
+      this.counter.find(
+        (one) => one.key === "counter_success_border_position_section"
+      ).value === "top"
+    ) {
+      document
+        .querySelector(".counter-area")
+        .style.setProperty(
+          "--counter-border-top",
+          `${
+            this.counter.find(
+              (one) => one.key === "counter_success_border_size_section"
+            ).value
+          }px ${
+            this.counter.find(
+              (one) => one.key === "counter_success_border_type_section"
+            ).value
+          } ${
+            this.counter.find(
+              (one) => one.key === "counter_success_border_color_section"
+            ).value
+          }`
+        );
+    } else if (
+      this.counter.find(
+        (one) => one.key === "counter_success_border_position_section"
+      ) &&
+      this.counter.find(
+        (one) => one.key === "counter_success_border_position_section"
+      ).value === "bottom"
+    ) {
+      document
+        .querySelector(".counter-area")
+        .style.setProperty(
+          "--counter-border-bottom",
+          `${
+            this.counter.find(
+              (one) => one.key === "counter_success_border_size_section"
+            ).value
+          }px ${
+            this.counter.find(
+              (one) => one.key === "counter_success_border_type_section"
+            ).value
+          } ${
+            this.counter.find(
+              (one) => one.key === "counter_success_border_color_section"
+            ).value
+          }`
+        );
+    }
+  },
 };
 </script>
 <style lang="scss">
 .counter-area {
   padding: 100px 0 70px;
+
+  --counter-bg: #fff;
+  --counter-fontSize: 20px;
+  --counter-border-top: 0px solid #fff;
+  --counter-border-bottom: 0px solid #fff;
+
+  background: var(--counter-bg);
+  border-top: var(--counter-border-top);
+  border-bottom: var(--counter-border-bottom);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 50px 0 0 0;
+
+  h2 {
+    font-size: var(--counter-fontSize) !important;
+    text-align: center;
+  }
 }
 .section-title span {
   margin-bottom: 8px;
@@ -74,7 +219,7 @@ export default {
   margin-right: auto;
 }
 .section-title h2 {
-  font-size: 35px;
+  /* font-size: 35px; */
   font-weight: 600;
   margin-top: 0;
   line-height: 1.2;

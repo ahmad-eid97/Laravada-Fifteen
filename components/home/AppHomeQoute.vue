@@ -1,8 +1,11 @@
 <template>
-    <section>
-    <div class="quote mt-5">
+  <section>
+    <div class="quote">
       <div class="quote-container">
-        <q>There are no secrets to success. It is the result of preparation, hard work, and learning from failure.</q>
+        <q
+          >There are no secrets to success. It is the result of preparation,
+          hard work, and learning from failure.</q
+        >
         <p class="fw-bold">—</p>
         <p class="fs-4">Colin Powell</p>
       </div>
@@ -11,21 +14,13 @@
 </template>
 
 <script>
-
 export default {
-    name: 'AppHomeQoute',
-    data() {
-        return {
-            
-        }
-    },
-    methods : {
-        
-    }
-}
+  name: "AppHomeQoute",
+  data() {
+    return {};
+  },
+  methods: {},
+};
 </script>
 
-<style>
-    
-    
-</style>
+<style></style>

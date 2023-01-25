@@ -65,16 +65,158 @@ export default {
     return {};
   },
   methods: {},
+  mounted() {
+    document
+      .querySelector(".technology-area")
+      .style.setProperty(
+        "--solutions-bg",
+        this.solutions.find(
+          (one) => one.key === "solutions_background_active_section"
+        ).value === "color"
+          ? this.solutions.find(
+              (one) => one.key === "solutions_background_color_section"
+            ).value
+          : `url(${
+              this.solutions.find(
+                (one) => one.key === "solutions_background_image_section"
+              ).value
+            })`
+      );
+
+    document
+      .querySelector(".technology-area")
+      .style.setProperty(
+        "--solutions-fontSize",
+        `${
+          this.solutions.find(
+            (one) => one.key === "solutions_font_size_section"
+          ).value
+        }px`
+      );
+
+    if (
+      this.solutions.find(
+        (one) => one.key === "solutions_border_position_section"
+      ) &&
+      this.solutions.find(
+        (one) => one.key === "solutions_border_position_section"
+      ).value === "both"
+    ) {
+      document
+        .querySelector(".technology-area")
+        .style.setProperty(
+          "--solutions-border-top",
+          `${
+            this.solutions.find(
+              (one) => one.key === "solutions_border_size_section"
+            ).value
+          }px ${
+            this.solutions.find(
+              (one) => one.key === "solutions_border_type_section"
+            ).value
+          } ${
+            this.solutions.find(
+              (one) => one.key === "solutions_border_color_section"
+            ).value
+          }`
+        );
+
+      document
+        .querySelector(".technology-area")
+        .style.setProperty(
+          "--solutions-border-bottom",
+          `${
+            this.solutions.find(
+              (one) => one.key === "solutions_border_size_section"
+            ).value
+          }px ${
+            this.solutions.find(
+              (one) => one.key === "solutions_border_type_section"
+            ).value
+          } ${
+            this.solutions.find(
+              (one) => one.key === "solutions_border_color_section"
+            ).value
+          }`
+        );
+    } else if (
+      this.solutions.find(
+        (one) => one.key === "solutions_border_position_section"
+      ) &&
+      this.solutions.find(
+        (one) => one.key === "solutions_border_position_section"
+      ).value === "top"
+    ) {
+      document
+        .querySelector(".technology-area")
+        .style.setProperty(
+          "--solutions-border-top",
+          `${
+            this.solutions.find(
+              (one) => one.key === "solutions_border_size_section"
+            ).value
+          }px ${
+            this.solutions.find(
+              (one) => one.key === "solutions_border_type_section"
+            ).value
+          } ${
+            this.solutions.find(
+              (one) => one.key === "solutions_border_color_section"
+            ).value
+          }`
+        );
+    } else if (
+      this.solutions.find(
+        (one) => one.key === "solutions_border_position_section"
+      ) &&
+      this.solutions.find(
+        (one) => one.key === "solutions_border_position_section"
+      ).value === "bottom"
+    ) {
+      document
+        .querySelector(".technology-area")
+        .style.setProperty(
+          "--solutions-border-bottom",
+          `${
+            this.solutions.find(
+              (one) => one.key === "solutions_border_size_section"
+            ).value
+          }px ${
+            this.solutions.find(
+              (one) => one.key === "solutions_border_type_section"
+            ).value
+          } ${
+            this.solutions.find(
+              (one) => one.key === "solutions_border_color_section"
+            ).value
+          }`
+        );
+    }
+  },
 };
 </script>
 
-<style>
-.technology-right {
-  padding: 0 10px;
-}
+<style lang="scss">
 .technology-area {
   padding: 100px 0 70px;
   background-color: #f8f8f8;
+
+  --solutions-bg: #fff;
+  --solutions-fontSize: 20px;
+  --solutions-border-top: 0px solid #fff;
+  --solutions-border-bottom: 0px solid #fff;
+
+  background: var(--solutions-bg);
+  border-top: var(--solutions-border-top);
+  border-bottom: var(--solutions-border-bottom);
+  background-repeat: no-repeat;
+  background-size: cover;
+  h2 {
+    font-size: var(--solutions-fontSize) !important;
+  }
+}
+.technology-right {
+  padding: 0 10px;
 }
 .section-title span {
   margin-bottom: 8px;
