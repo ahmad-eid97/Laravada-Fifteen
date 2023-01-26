@@ -186,7 +186,7 @@ export default {
 </script>
 <style lang="scss">
 .counter-area {
-  padding: 100px 0 70px;
+  padding: 70px 0 70px !important;
 
   --counter-bg: #fff;
   --counter-fontSize: 20px;

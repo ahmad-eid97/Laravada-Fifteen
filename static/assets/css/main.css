@@ -324,7 +324,7 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
   position: relative;
   background-color: var(--main-color) 0d;
   z-index: 1;
-  padding: 30px 0 0;
+  padding: 50px 0 0 0 !important;
 }
 .testimonial-section::before {
   content: "";
