@@ -51,14 +51,12 @@
         </p>
 
         <div class="d-flex d-none d-lg-flex d-md-none">
-          <div class="footer-icon fs-12">
-            <i class="fa-brands fa-facebook-f"></i>
-          </div>
-          <div class="footer-icon fs-12">
-            <i class="fa-brands fa-twitter"></i>
-          </div>
-          <div class="footer-icon fs-12">
-            <i class="fa-brands fa-google"></i>
+          <div
+            class="footer-icon fs-12"
+            v-for="link in $store.state.socialLinks"
+            :key="link.key"
+          >
+            <i :class="link.icon"></i>
           </div>
         </div>
       </div>
