@@ -56,8 +56,11 @@ export default {
 </script>
 <style>
 .about-partners {
-  padding: 45px 100px 0 !important;
+  padding: 40px 40px !important;
   background-color: var(--main-color) !important;
+}
+.about-partners .swiper-container {
+  margin-bottom: 0 !important;
 }
 .about-partners::before {
   /* content: "";

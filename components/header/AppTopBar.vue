@@ -135,7 +135,7 @@ export default {
   box-sizing: border-box;
 }
 .subnav-conatiner .searchform input[type="text"]::placeholder {
-  /* color: #fff !important; */
+  color: #fff !important;
   opacity: 1;
 }
 .subnav-conatiner .searchform input[type="text"]:hover,

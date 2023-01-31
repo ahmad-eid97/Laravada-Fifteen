@@ -400,16 +400,22 @@ export default {
   padding: 0;
   background-color: #fff;
 }
+.contact-form .form-group.checkbox-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 .contact-form .form-group.checkbox-option #chb2 {
-  position: absolute;
+  /* position: absolute;
   top: 6px;
-  left: 0;
+  left: 0; */
   height: 16px;
   width: 16px;
 }
 .contact-form .form-group.checkbox-option p {
   padding-left: 25px;
   font-size: 15px;
+  margin: 0;
 }
 .contact-form-area .section-title h2 {
   max-width: 600px;
