@@ -11,18 +11,28 @@
     <app-home-qoute></app-home-qoute>
 
     <!-- WHY WORK WITH US Start -->
-    <app-home-why :features="features"></app-home-why>
+    <div v-if="features.status">
+      <app-home-why :features="features.data"></app-home-why>
+    </div>
     <!-- WHY WORK WITH US End -->
     <!-- testimonials Section Start -->
     <app-home-testimonials :testimonials="testimonials"></app-home-testimonials>
     <!-- testimonials Section End -->
-    <app-home-countdown :counter="counter"></app-home-countdown>
+    <div v-if="counter.status">
+      <app-home-countdown :counter="counter.data"></app-home-countdown>
+    </div>
 
-    <app-home-technology :solutions="solutions"></app-home-technology>
+    <div v-if="solutions.status">
+      <app-home-technology :solutions="solutions.data"></app-home-technology>
+    </div>
     <app-home-qoute-2></app-home-qoute-2>
 
-    <app-home-activities :activities="activities" />
-    <app-home-steps :steps="steps" />
+    <div v-if="activities.status">
+      <app-home-activities :activities="activities.data" />
+    </div>
+    <div v-if="steps.status">
+      <app-home-steps :steps="steps.data" />
+    </div>
 
     <app-home-team :team="team"></app-home-team>
 
@@ -176,16 +186,16 @@ export default {
 
     return {
       slides: slides.data.data.sliders,
-      features: features.data.data,
+      features: features.data,
       partners: partners.data.data.partners,
-      solutions: solutions.data.data,
+      solutions: solutions.data,
       blogs: blogs.data.data.blogs,
       services: services.data.data.services,
       testimonials: testimonials.data.data.testimonials,
       team: team.data.data.teams,
-      counter: counter.data.data,
-      activities: activities.data.data,
-      steps: steps.data.data,
+      counter: counter.data,
+      activities: activities.data,
+      steps: steps.data,
     };
   },
   components: {
