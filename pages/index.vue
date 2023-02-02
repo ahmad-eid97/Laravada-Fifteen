@@ -11,26 +11,26 @@
     <app-home-qoute></app-home-qoute>
 
     <!-- WHY WORK WITH US Start -->
-    <div v-if="features.status">
+    <div v-if="$store.state.sectionsStatus.features">
       <app-home-why :features="features.data"></app-home-why>
     </div>
     <!-- WHY WORK WITH US End -->
     <!-- testimonials Section Start -->
     <app-home-testimonials :testimonials="testimonials"></app-home-testimonials>
     <!-- testimonials Section End -->
-    <div v-if="counter.status">
+    <div v-if="$store.state.sectionsStatus.counter_success">
       <app-home-countdown :counter="counter.data"></app-home-countdown>
     </div>
 
-    <div v-if="solutions.status">
+    <div v-if="$store.state.sectionsStatus.solutions">
       <app-home-technology :solutions="solutions.data"></app-home-technology>
     </div>
     <app-home-qoute-2></app-home-qoute-2>
 
-    <div v-if="activities.status">
+    <div v-if="$store.state.sectionsStatus.activities">
       <app-home-activities :activities="activities.data" />
     </div>
-    <div v-if="steps.status">
+    <div v-if="$store.state.sectionsStatus.steps">
       <app-home-steps :steps="steps.data" />
     </div>
 
